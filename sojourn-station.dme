@@ -2682,6 +2682,7 @@
 #include "code\modules\organs\internal\lungs.dm"
 #include "code\modules\organs\internal\machine.dm"
 #include "code\modules\organs\internal\muscles.dm"
+#include "code\modules\organs\internal\mutator_core.dm"
 #include "code\modules\organs\internal\nanogate.dm"
 #include "code\modules\organs\internal\nerves.dm"
 #include "code\modules\organs\internal\psionic.dm"

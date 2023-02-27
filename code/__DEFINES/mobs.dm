@@ -203,6 +203,7 @@
 
 #define BP_PSION "psionic organ"
 #define BP_NANOGATE "nanogate"
+#define BP_MUTATED_CORE "mutated core"
 
 // Funny Organs.
 #define BP_HIVE     "hive node"
