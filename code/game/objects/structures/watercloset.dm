@@ -290,8 +290,6 @@
 			var/remove_amount = M.touching.maximum_volume * M.reagent_permeability() //take off your suit first
 			M.touching.remove_any(remove_amount)
 
-		O.germ_level = max(O.germ_level -= soap_modifer * M.reagent_permeability(), 0)
-
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			var/washgloves = 1
@@ -469,7 +467,7 @@
 		return
 
 	if(amount_of_reagents < 40 && limited_reagents)
-		to_chat(user, SPAN_WARNING("The water presser seems to low to wash with."))
+		to_chat(user, SPAN_WARNING("The water pressure seems to low to wash with."))
 		return
 
 	if(busy)
@@ -511,7 +509,7 @@
 			if(limited_reagents)
 				amount_of_reagents -= amount_to_add
 		else
-			to_chat(user, SPAN_WARNING("The sink seems to be out of presser"))
+			to_chat(user, SPAN_WARNING("The sink seems to be out of presure"))
 		return 1
 
 	else if (istype(O, /obj/item/tool/baton))

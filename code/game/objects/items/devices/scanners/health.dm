@@ -93,7 +93,9 @@
 	user.visible_message(SPAN_NOTICE("[user] has analyzed [target]'s vitals."),SPAN_NOTICE("You have analyzed [target]'s vitals."))
 	. = medical_scan_results(scan_subject, mode)
 
-/proc/medical_scan_results(var/mob/living/M, var/mode)
+// Has to be living/carbon for the NSA check as metabolism_effects is inherent to them
+// Analyzers are meant to work only on humans (and monkeys) anyways so this virtually changes nothing.
+/proc/medical_scan_results(var/mob/living/carbon/M, var/mode)
 	. = list()
 	var/dat = list()
 	if (!ishuman(M) || M.isSynthetic())
@@ -106,11 +108,16 @@
 		. += span("highlight", "Subject's pulse: <font color='red'>-- bpm.</font>")
 		return
 
-	var/fake_oxy = max(rand(1, 40), M.getOxyLoss(), (300 - (M.getToxLoss() + M.getFireLoss() + M.getBruteLoss())))
+	var/fake_oxy = max(rand(1, 40), M.getOxyLoss(), (300 - (M.getFireLoss() + M.getBruteLoss())))
+	var/tox_content = M.chem_effects[CE_TOXIN] + M.chem_effects[CE_ALCOHOL_TOXIC]
 	var/OX = M.getOxyLoss() > 50 	? 	"<b>[M.getOxyLoss()]</b>" 		: M.getOxyLoss()
-	var/TX = M.getToxLoss() > 50 	? 	"<b>[M.getToxLoss()]</b>" 		: M.getToxLoss()
+	var/TX = tox_content > 8		?	"<b>[tox_content]</b>"			: (tox_content ? tox_content : "0")
 	var/BU = M.getFireLoss() > 50 	? 	"<b>[M.getFireLoss()]</b>" 		: M.getFireLoss()
 	var/BR = M.getBruteLoss() > 50 	? 	"<b>[M.getBruteLoss()]</b>" 	: M.getBruteLoss()
+	// Values are rounded because of nerve efficiency and damage, backgrounds,
+	// VIV stat changes, chems, and other variables that affect max NSA threshold.
+	var/NSA = round(M.metabolism_effects.get_nsa(), 1)
+	var/NSA_MAX = round(M.metabolism_effects.nsa_threshold, 1)
 	if(M.status_flags & FAKEDEATH)
 		OX = fake_oxy > 50 			? 	"<b>[fake_oxy]</b>" 			: fake_oxy
 		dat += "<h2>Analyzing Results for [M]:</h2>"
@@ -119,7 +126,19 @@
 		dat += span("highlight", "Analyzing Results for [M]:\n\t Overall Status: [M.stat > 1 ? "dead" : "[round(M.health/M.maxHealth*100)]% healthy"]")
 	dat += span("highlight", "    Key: <font color='#0080ff'>Suffocation</font>/<font color='green'>Toxin</font>/<font color='#FFA500'>Burns</font>/<font color='red'>Brute</font>")
 	dat += span("highlight", "    Damage Specifics: <font color='#0080ff'>[OX]</font> - <font color='green'>[TX]</font> - <font color='#FFA500'>[BU]</font> - <font color='red'>[BR]</font>")
-	dat += span("highlight", "Body Temperature: [M.bodytemperature-T0C]&deg;C ([M.bodytemperature*1.8-459.67]&deg;F)")
+	if(M.bodytemperature >= 313.15) // 40º C / 104 F = fever
+		dat += span("highlight", "Body Temperature: <font color='red'>[M.bodytemperature-T0C]&deg;C ([M.bodytemperature*1.8-459.67]&deg;F)</font>")
+	else if(M.bodytemperature <= 283.222) // 10º C / 50 F = too cold, this is slowdown threshold too
+		dat += span("highlight", "Body Temperature: <font color='blue'>[M.bodytemperature-T0C]&deg;C ([M.bodytemperature*1.8-459.67]&deg;F)</font>")
+	else // No color, enough green already
+		dat += span("highlight", "Body Temperature: [M.bodytemperature-T0C]&deg;C ([M.bodytemperature*1.8-459.67]&deg;F)")
+	if(NSA >= NSA_MAX * 0.5 && NSA < NSA_MAX) // At half our maximum tolerable NSA, warn us we're getting close
+		dat += span("highlight", "Neural System Accumulation: <font color='orange'>[NSA] / [NSA_MAX]</font>")
+	else if(NSA >= NSA_MAX) // If we've hit our maximum threshold, or are exceeding it, bold it, on red
+		dat += span("highlight", "Neural System Accumulation: <font color='red'><b>[NSA] / [NSA_MAX]</b></font>")
+	else // Otherwise, a green color for our nominal NSA
+		dat += span("highlight", "Neural System Accumulation: <font color='green'>[NSA] / [NSA_MAX]</font>")
+
 	if(M.tod && (M.stat == DEAD || (M.status_flags & FAKEDEATH)))
 		dat += span("highlight", "Time of Death: [M.tod]")
 	if(ishuman(M) && mode == 1)
@@ -132,18 +151,19 @@
 				capitalize(org.name),
 				(BP_IS_ROBOTIC(org)) ? "(Cybernetic)" : "",
 				(org.brute_dam > 0) ? SPAN_WARNING("[org.brute_dam]") : 0,
-				(org.status & ORGAN_BLEEDING)?SPAN_DANGER("\[Bleeding\]"):"",
+				(org.status & ORGAN_BLEEDING)?SPAN_DANGER(" \[Bleeding\]"):"",
 				(org.burn_dam > 0) ? "<font color='#FFA500'>[org.burn_dam]</font>" : 0)
 		else
 			dat += span("highlight", "    Limbs are OK.")
 
 	OX = M.getOxyLoss() > 50 ? 	 "<font color='#0080ff'><b>Severe oxygen deprivation detected</b></font>" 		: 	"Subject bloodstream oxygen level normal"
-	TX = M.getToxLoss() > 50 ? 	 "<font color='green'><b>Dangerous amount of toxins detected</b></font>" 	: 	"Subject bloodstream toxin level minimal"
+	TX = tox_content > 8 ? 	 "<font color='green'><b>Dangerous amount of toxins detected</b></font>" 	: 	"Subject bloodstream toxin level minimal"
 	BU = M.getFireLoss() > 50 ?  "<font color='#FFA500'><b>Severe burn damage detected</b></font>" 			:	"Subject burn injury status O.K"
 	BR = M.getBruteLoss() > 50 ? "<font color='red'><b>Severe anatomical damage detected</b></font>" 		: 	"Subject brute-force injury status O.K"
+	NSA = NSA >= NSA_MAX ? "<font color='#6533da'><b>Severe Neural System Accumulation detected!</b></font>" 	: 	"Subject Neural System Accumulation nominal"
 	if(M.status_flags & FAKEDEATH)
 		OX = fake_oxy > 50 ? SPAN_WARNING("Severe oxygen deprivation detected") : "Subject bloodstream oxygen level normal"
-	dat += "[OX] | [TX] | [BU] | [BR]"
+	dat += "[OX] | [TX] | [BU] | [BR] | [NSA]"
 	if(iscarbon(M))
 		var/mob/living/carbon/C = M
 		if(C.reagents.total_volume)
@@ -195,13 +215,13 @@
 			if(E.status & ORGAN_BROKEN)
 				if(!(E.status & ORGAN_SPLINTED))
 					if(E.organ_tag in list(BP_R_ARM, BP_L_ARM, BP_R_LEG, BP_L_LEG))
-						dat += SPAN_WARNING("Unsecured fracture in subject [E.get_bone()]. Splinting recommended for transport.")
+						dat += SPAN_WARNING("Unsecured fracture in subject's [E.get_bone()]. Splinting recommended for transport.")
+					else if(E.organ_tag in list(BP_HEAD, BP_CHEST, BP_GROIN))
+						dat += SPAN_WARNING("Unsecured fracture in subject's [E.get_bone()]. Surgery recommended.")
 					else
 						foundUnlocatedFracture = TRUE
-			if(E.has_infected_wound())
-				dat += SPAN_WARNING("Infected wound detected in subject [E]. Disinfection recommended.")
 
-		if(foundUnlocatedFracture)
+		if(foundUnlocatedFracture) // Sanity check
 			dat += SPAN_WARNING("Bone fractures detected. Advanced scanner required for location.")
 
 		for(var/obj/item/organ/external/e in H.organs)
@@ -210,6 +230,16 @@
 			for(var/datum/wound/W in e.wounds) if(W.internal)
 				dat += text(SPAN_WARNING("Internal trauma detected. Advanced scanner required for location."))
 				break
+			var/internal_wound_severity = e.severity_internal_wounds
+			if(!internal_wound_severity)
+				continue
+			if(internal_wound_severity < 5)
+				dat += text(SPAN_WARNING("Light internal damage detected in \the [e]. Advanced scanner required for location. Treatment recommended."))
+			else if(internal_wound_severity < 9)
+				dat += text(SPAN_WARNING("Moderate internal damage detected \the [e]. Advanced scanner required for location. Treatment recommended."))
+			else
+				dat += text(SPAN_WARNING("Severe internal damage detected \the [e]. Advanced scanner required for location. Immediate treatment recommended."))
+
 		if(H.vessel)
 			var/blood_volume = H.vessel.get_reagent_amount("blood")
 			var/blood_percent =  round((blood_volume / H.species.blood_volume)*100)
