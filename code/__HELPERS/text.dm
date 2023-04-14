@@ -70,7 +70,7 @@
 	return sanitize(replace_characters(input, list(">"=" ", "<"=" ", "\""="'","&lt;" = " ","&gt;" = " ")), max_length, encode, trim, extra)
 
 //Filters out undesirable characters from names
-/proc/sanitizeName(var/input, var/max_length = MAX_NAME_LEN, var/allow_numbers = 0)
+/proc/sanitizeName(var/input, var/max_length = MAX_NAME_LEN, var/allow_numbers = TRUE)
 	if(!input || length(input) > max_length)
 		return //Rejects the input if it is null or if it is longer then the max length allowed
 
@@ -463,7 +463,7 @@ proc/TextPreview(var/string, var/len=40)
 	t = replacetext(t, "\[/grid\]", "</td></tr></table>")
 	t = replacetext(t, "\[row\]", "</td><tr>")
 	t = replacetext(t, "\[cell\]", "<td>")
-	t = replacetext(t, "\[logo\]", "<img src = nadezhdalogo.png>")
+	t = replacetext(t, "\[logo\]", "<img src = libertylogo.png>")
 	t = replacetext(t, "\[logolonestar\]", "<img src = lonestarlogo.png>")
 	t = replacetext(t, "\[editorbr\]", "")
 	return t
@@ -494,7 +494,7 @@ proc/TextPreview(var/string, var/len=40)
 	t = replacetext(t, "</table>", "\[/grid\]")
 	t = replacetext(t, "<tr>", "\[row\]")
 	t = replacetext(t, "<td>", "\[cell\]")
-	t = replacetext(t, "<img src = nadezhdalogo.png>", "\[logo\]")
+	t = replacetext(t, "<img src = libertylogo.png>", "\[logo\]")
 	t = replacetext(t, "<img src = lonestarlogo.png>", "\[logolonestar\]")
 	t = replacetext(t, "<span class=\"paper_field\"></span>", "\[field\]")
 	t = strip_html_properly(t)

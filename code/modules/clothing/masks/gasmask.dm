@@ -260,16 +260,16 @@
 	icon_state = "bane"
 	is_alts = FALSE
 
-/obj/item/clothing/mask/gas/artificer
-	name = "artificer's gas mask"
-	desc = "An industrial gas mask bearing the colors of the artificer's guild."
+/obj/item/clothing/mask/gas/Union
+	name = "Union's gas mask"
+	desc = "An industrial gas mask bearing the colors of the Terra-Therma Union."
 	icon_state = "gas_guild" // Sprites by Ezoken/Dromkii
 	armor_list = list(melee = 0, bullet = 0, energy = 0, bomb = 0, bio = 60, rad = 80)
 	is_alts = FALSE
 
 /obj/item/clothing/mask/gas/guild_rebreather
-	name = "artificer's rebreather"
-	desc = "An industrial gas mask bearing the colors of the artificer's guild."
+	name = "Union's rebreather"
+	desc = "An industrial gas mask bearing the colors of the Terra-Therma Union."
 	icon_state = "bane_guild" // Sprites by Ezoken/Dromkii
 	armor_list = list(melee = 0, bullet = 0, energy = 0, bomb = 0, bio = 30, rad = 40) // Half coverage, half bonuses.
 	flags_inv = BLOCKFACEHAIR
@@ -340,30 +340,37 @@
 
 /obj/item/clothing/mask/gas/bigguy/sleekguy
 	name = "sleek grey rebreather"
-	desc = "A small, Soteria-brand rebreather designed to regulate the flux of gasses fed to its user." // take that Lonestar, no longer will you have a monopoly on cool facewear -Mus
+	desc = "A small, CAPSA-brand rebreather designed to regulate the flux of gasses fed to its user." // take that Lonestar, no longer will you have a monopoly on cool facewear -Mus
 	icon_state = "srebreath"
 
 /obj/item/clothing/mask/gas/bigguy/sleekblueguy
 	name = "sleek blue rebreather"
-	desc = "A small, Soteria-brand rebreather designed to regulate the flux of gasses fed to its user. This one is blue and has a Soteria Medical marking"
+	desc = "A small, CAPSA-brand rebreather designed to regulate the flux of gasses fed to its user. This one is blue and has a CAPSA Medical marking"
 	icon_state = "srebreath_blue"
 
 /obj/item/clothing/mask/gas/bigguy/sleekgoldguy
 	name = "sleek gold rebreather"
-	desc = "A small, Soteria-brand rebreather designed to regulate the flux of gasses fed to its user. This one is gold and has a Lonestar marking."
+	desc = "A small, CAPSA-brand rebreather designed to regulate the flux of gasses fed to its user. This one is gold and has a Lonestar marking."
 	icon_state = "srebreath_gold"
 
 /obj/item/clothing/mask/gas/bigguy/sleekorangeguy
 	name = "sleek orange rebreather"
-	desc = "A small, Soteria-brand rebreather designed to regulate the flux of gasses fed to its user. This one is orange and has a Guild marking."
+	desc = "A small, CAPSA-brand rebreather designed to regulate the flux of gasses fed to its user. This one is orange and has a Guild marking."
 	icon_state = "srebreath_orange"
 
 /obj/item/clothing/mask/gas/bigguy/sleekmarshalguy
 	name = "sleek marshal rebreather"
-	desc = "A small, Soteria-brand rebreather designed to regulate the flux of gasses fed to its user. This one carries the Marshal colors and has thicker filters."
+	desc = "A small, CAPSA-brand rebreather designed to regulate the flux of gasses fed to its user. This one carries the Marshal colors and has thicker filters."
 	icon_state = "srebreath_marshal"
 
 /obj/item/clothing/mask/gas/bigguy/sleekpurpleguy
 	name = "sleek purple rebreather"
-	desc = "A small, Soteria-brand rebreather designed to regulate the flux of gasses fed to its user. This one is purple and has a Soteria Research marking."
+	desc = "A small, CAPSA-brand rebreather designed to regulate the flux of gasses fed to its user. This one is purple and has a Phokorus Institute Research marking."
 	icon_state = "srebreath_purple"
+
+//Fontaine Logistics
+/obj/item/clothing/mask/gas/fontaine
+	name = "fontaine gas mask"
+	desc = "A Fontaine-brand gas mask; completed with a rebreather and a green visor."
+	icon_state = "smask_fontaine"
+	item_state = "smask_fontaine"

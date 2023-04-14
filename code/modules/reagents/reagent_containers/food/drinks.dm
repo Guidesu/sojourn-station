@@ -453,8 +453,8 @@
 	icon_state = "britmug"
 
 /obj/item/reagent_containers/food/drinks/mug/moebius
-	name = "\improper soteria mug"
-	desc = "A mug with a Soteria Institute logo on it. Not even your morning coffee is safe from corporate advertising."
+	name = "\improper CAPSA mug"
+	desc = "A mug with a CAPSA logo on it. Not even your morning coffee is safe from corporate advertising."
 	icon_state = "mug_moebius"
 
 
@@ -489,13 +489,13 @@
 	icon_state = "mug_hammer"
 
 /obj/item/reagent_containers/food/drinks/mug/league
-	name = "Technomancer mug"
-	desc = "A mug with a Technomancer League logo on it."
+	name = "Union mug"
+	desc = "A mug with a Terra-Therma Worker's Union logo on it."
 	icon_state = "mug_league"
 
 /obj/item/reagent_containers/food/drinks/mug/moe
-	name = "\improper soteria mug"
-	desc = "A white mug with Soteria Institute logo on it."
+	name = "\improper CAPSA mug"
+	desc = "A white mug with CAPSA logo on it."
 	icon_state = "mug_moe"
 
 /obj/item/reagent_containers/food/drinks/mug/aster

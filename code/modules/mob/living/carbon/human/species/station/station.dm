@@ -27,74 +27,12 @@
 	)
 	darksight = 2
 
-	perks = list(PERK_IWILLSURVIVE, PERK_BATTLECRY, PERK_TENACITY, PERK_DIVERSE_CULTURE)
+	perks = list(PERK_IWILLSURVIVE, PERK_BATTLECRY, PERK_TENACITY)
 
 	spawn_flags = CAN_JOIN
 
 /datum/species/human/get_bodytype()
 	return "Human"
-
-
-/datum/species/exalt_human
-	name = "Exalt Human"
-	name_plural = "Exalt Humans"
-	default_form = FORM_EXALT_HUMAN
-	obligate_name = FALSE
-	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/stomp,  /datum/unarmed_attack/kick, /datum/unarmed_attack/bite)
-	blurb = "Since its inception, Humankind has always sought to become something beyond itself- Exalts were their answer. Starting with baseline human DNA, \
-	an Exalt's genetic code has been tweaked to make them healthier, smarter, and stronger. Their metabolism is modified to predispose them towards staying \
-	fit and athletic for the duration of an extended lifespan. Their organs are specially modified to operate with greater efficiency than the average human's. \
-	However, no life is perfect. Life as an Exalt is an expensive one, and low-income humans can't support. A combination of royalty fees for licensed genomes \
-	and costly maintenance leave even middle-class exalts paying huge sums of money, often taken directly from their paychecks. Exalts usually resemble \
-	especially handsome humans, but anything is possible with enough splicing."
-	num_alternate_languages = 2
-	name_language = null // Use the first-name last-name generator rather than a language scrambler
-	min_age = 18
-	max_age = 200 //Effectively ageless, but human history is only so long.
-	hunger_factor = 1.1
-
-	dark_color = "#ffffff"
-	light_color = "#000000"
-
-	stat_modifiers = list(
-		STAT_BIO = 5,
-		STAT_COG = 5,
-		STAT_MEC = 5,
-		STAT_ROB = 5,
-		STAT_TGH = 5,
-		STAT_VIG = 5
-	)
-
-	darksight = 3
-
-	perks = list(PERK_DEBTOR, PERK_SPLICER, PERK_DIVERSE_CULTURE)
-
-	has_limbs = list(
-		BP_CHEST =  new /datum/organ_description/chest/exalt,
-		BP_GROIN =  new /datum/organ_description/groin/exalt,
-		BP_HEAD  =  new /datum/organ_description/head/exalt,
-		BP_L_ARM =  new /datum/organ_description/arm/left/exalt/full,
-		BP_R_ARM =  new /datum/organ_description/arm/right/exalt/full,
-		BP_L_LEG =  new /datum/organ_description/leg/left/exalt/full,
-		BP_R_LEG =  new /datum/organ_description/leg/right/exalt/full
-	)
-
-	has_process = list(    // which required-organ checks are conducted.
-		OP_HEART        = /obj/item/organ/internal/heart/huge/exalt,
-		OP_LUNGS        = /obj/item/organ/internal/lungs/long/exalt,
-		OP_STOMACH      = /obj/item/organ/internal/stomach/improved/exalt,
-		OP_LIVER        = /obj/item/organ/internal/liver/big/exalt,
-		OP_KIDNEY_LEFT  = /obj/item/organ/internal/kidney/left/exalt,
-		OP_KIDNEY_RIGHT = /obj/item/organ/internal/kidney/right/exalt,
-		BP_BRAIN        = /obj/item/organ/internal/brain,
-		OP_APPENDIX     = /obj/item/organ/internal/appendix,
-		OP_EYES         = /obj/item/organ/internal/eyes
-	)
-
-	spawn_flags = CAN_JOIN
-
-/datum/species/exalt_human/get_bodytype()
-	return "Exalt Human"
 
 /datum/species/sablekyne
 	name = "Sablekyne"
@@ -251,7 +189,7 @@
 	taste_sensitivity = TASTE_HYPERSENSITIVE
 	hunger_factor = 1.25
 	radiation_mod = 0.5
-	total_health = 150
+	total_health = 130
 	siemens_coefficient = 2
 
 	dark_color = "#ff0000"
@@ -292,7 +230,7 @@
 		)
 	permitted_wings = list()
 
-	perks = list(PERK_PERFECT_SHOT, PERK_ENHANCEDSENSES)
+	perks = list(PERK_ENHANCEDSENSES)
 
 /datum/species/kriosan/get_bodytype()
 	return "Kriosan"
@@ -312,6 +250,7 @@
 	blurb = "no."
 	taste_sensitivity = TASTE_DULL
 	hunger_factor = 1.25
+	total_health = 120
 
 	cold_level_1 = 240 //Default 270
 	cold_level_2 = 200 //Default 230
@@ -352,7 +291,7 @@
 	name_language = null
 	min_age = 18
 	max_age = 60
-	slowdown = -0.5
+	slowdown = -0.4
 	blurb = "no."
 	darksight = 2
 
@@ -521,7 +460,7 @@
 	min_age = 18
 	max_age = 90
 	spawn_flags = CAN_JOIN
-	total_health = 130                    // Burn damage multiplier.
+	total_health = 110                   // Burn damage multiplier.
 	radiation_mod = 0
 	darksight = 3
 
@@ -592,108 +531,6 @@
 
 /datum/species/cindarite/get_bodytype()
 	return "Cindarite"
-
-/datum/species/folken
-	name = "Folken"
-	name_plural = "Folkens"
-	default_form = FORM_FOLKEN
-	obligate_name = TRUE
-	obligate_form = TRUE
-	reagent_tag = IS_TREE
-	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/stomp,  /datum/unarmed_attack/kick, /datum/unarmed_attack/bite)
-	blurb = "N/A"
-	num_alternate_languages = 2
-	name_language = null	// Use the first-name last-name generator rather than a language scrambler
-	min_age = 18
-	max_age = 200
-	burn_mod = 2						// Burn damage multiplier.
-	light_dam = 1 // Same threshold as the Nightcrawler perk
-	vision_flags = SEE_SELF
-	flags = NO_PAIN | IS_PLANT
-	taste_sensitivity = TASTE_NUMB
-	darksight = 4
-
-	dark_color = "#93eb9e"
-	light_color = "#93eb9e"
-
-	has_process = list(    // which required-organ checks are conducted.
-		OP_HEART =    /obj/item/organ/internal/heart/plant,
-		OP_STOMACH =  /obj/item/organ/internal/stomach/plant,
-		OP_LUNGS =    /obj/item/organ/internal/lungs/plant,
-		OP_LIVER =    /obj/item/organ/internal/liver/plant,
-		BP_BRAIN =    /obj/item/organ/internal/brain/plant,
-		OP_KIDNEY_LEFT =  /obj/item/organ/internal/kidney/left/plant,
-		OP_KIDNEY_RIGHT = /obj/item/organ/internal/kidney/right/plant,
-		OP_EYES =     /obj/item/organ/internal/eyes/plant
-		)
-
-	perks = list(PERK_FOLKEN_HEALING)
-
-	stat_modifiers = list(
-		STAT_BIO = 10,
-		STAT_COG = 0,
-		STAT_MEC = 0,
-		STAT_ROB = 0,
-		STAT_TGH = 0,
-		STAT_VIG = 10
-	)
-
-	spawn_flags = CAN_JOIN
-
-/datum/species/folken/get_bodytype()
-	return "Folken"
-
-/datum/species/mycus
-	name = "Mycus"
-	name_plural = "Myci"
-	default_form = FORM_MYCUS
-	obligate_name = TRUE
-	obligate_form = TRUE
-	reagent_tag = IS_TREE
-	unarmed_types = list(/datum/unarmed_attack/punch/hammer_fist, /datum/unarmed_attack/stomp,  /datum/unarmed_attack/kick, /datum/unarmed_attack/bite)
-	blurb = "N/A"
-	num_alternate_languages = 2
-	name_language = null	// Use the first-name last-name generator rather than a language scrambler
-	min_age = 18
-	max_age = 200
-	flags = NO_PAIN | IS_PLANT | NO_POISON | NO_BREATHE
-	slowdown = 0.3
-	hunger_factor = 1.3
-	darksight = 6
-
-	burn_mod = 2						// Burn damage multiplier.
-	light_dam = 1 // Same threshold as the Nightcrawler perk
-	taste_sensitivity = TASTE_NUMB
-
-	dark_color = "#49754f"
-	light_color = "#49754f"
-
-	has_process = list(    // which required-organ checks are conducted.
-		OP_HEART =    /obj/item/organ/internal/heart/plant,
-		OP_STOMACH =  /obj/item/organ/internal/stomach/plant,
-		BP_BRAIN =    /obj/item/organ/internal/brain/plant,
-		OP_EYES =     /obj/item/organ/internal/eyes,
-		OP_LUNGS =    /obj/item/organ/internal/lungs,
-		OP_LIVER =    /obj/item/organ/internal/liver,
-		OP_KIDNEY_LEFT =  /obj/item/organ/internal/kidney/left,
-		OP_KIDNEY_RIGHT = /obj/item/organ/internal/kidney/right,
-		)
-
-	perks = list(PERK_DARK_HEAL)
-
-	stat_modifiers = list(
-		STAT_BIO = 0,
-		STAT_COG = 0,
-		STAT_MEC = 0,
-		STAT_ROB = 20,
-		STAT_TGH = 0,
-		STAT_VIG = 0
-	)
-
-	spawn_flags = CAN_JOIN
-
-/datum/species/mycus/get_bodytype()
-	return "Mycus"
 
 /datum/species/full_body_prosthetic
 	name = "Full Body Prosthetic"
@@ -795,10 +632,10 @@
 /datum/species/unbranded_synth/get_bodytype()
 	return "Unbranded Full Body Prosthetic"
 
-/datum/species/soteria_synthetic
-	name = "Soteria Synthetic"
+/datum/species/capsa_synthetic
+	name = "CAPSA synth"
 	name_plural = "synthetics"
-	default_form = FORM_SOTSYNTH
+	default_form = FORM_CAPSASYNTH
 	obligate_name = TRUE
 	obligate_form = TRUE
 	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/stomp,  /datum/unarmed_attack/kick, /datum/unarmed_attack/bite)
@@ -823,13 +660,13 @@
 	light_color = "#000000"
 
 	has_limbs = list(
-		BP_CHEST =  new /datum/organ_description/chest/soteria_synthetic,
-		BP_GROIN =  new /datum/organ_description/groin/soteria_synthetic,
-		BP_HEAD =   new /datum/organ_description/head/soteria_synthetic,
-		BP_L_ARM =  new /datum/organ_description/arm/left/soteria_synthetic/full,
-		BP_R_ARM =  new /datum/organ_description/arm/right/soteria_synthetic/full,
-		BP_L_LEG =  new /datum/organ_description/leg/left/soteria_synthetic/full,
-		BP_R_LEG =  new /datum/organ_description/leg/right/soteria_synthetic/full
+		BP_CHEST =  new /datum/organ_description/chest/capsa_synthetic,
+		BP_GROIN =  new /datum/organ_description/groin/capsa_synthetic,
+		BP_HEAD =   new /datum/organ_description/head/capsa_synthetic,
+		BP_L_ARM =  new /datum/organ_description/arm/left/capsa_synthetic/full,
+		BP_R_ARM =  new /datum/organ_description/arm/right/capsa_synthetic/full,
+		BP_L_LEG =  new /datum/organ_description/leg/left/capsa_synthetic/full,
+		BP_R_LEG =  new /datum/organ_description/leg/right/capsa_synthetic/full
 		)
 
 	has_process = list(    // which required-process checks are conducted and default organs for them.
@@ -856,13 +693,13 @@
 
 	spawn_flags = CAN_JOIN
 
-/datum/species/soteria_synthetic/get_bodytype()
-	return "Soteria Synthetic"
+/datum/species/capsa_synthetic/get_bodytype()
+	return "CAPSA Synthetic"
 
-/datum/species/artificer_guild_synthetic
-	name = "Artificer Guild Synthetic"
+/datum/species/terra_therma_synthetic
+	name = "Terra-Therma synth"
 	name_plural = "synthetics"
-	default_form = FORM_AGSYNTH
+	default_form = FORM_TERRAYNTH
 	obligate_name = TRUE
 	obligate_form = TRUE
 	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/stomp,  /datum/unarmed_attack/kick, /datum/unarmed_attack/bite)
@@ -886,13 +723,13 @@
 	light_color = "#FCAE1E"
 
 	has_limbs = list(
-		BP_CHEST =  new /datum/organ_description/chest/artificer_guild_synthetic,
-		BP_GROIN =  new /datum/organ_description/groin/artificer_guild_synthetic,
-		BP_HEAD =   new /datum/organ_description/head/artificer_guild_synthetic,
-		BP_L_ARM =  new /datum/organ_description/arm/left/artificer_guild_synthetic/full,
-		BP_R_ARM =  new /datum/organ_description/arm/right/artificer_guild_synthetic/full,
-		BP_L_LEG =  new /datum/organ_description/leg/left/artificer_guild_synthetic/full,
-		BP_R_LEG =  new /datum/organ_description/leg/right/artificer_guild_synthetic/full
+		BP_CHEST =  new /datum/organ_description/chest/terra_therma_synthetic,
+		BP_GROIN =  new /datum/organ_description/groin/terra_therma_synthetic,
+		BP_HEAD =   new /datum/organ_description/head/terra_therma_synthetic,
+		BP_L_ARM =  new /datum/organ_description/arm/left/terra_therma_synthetic/full,
+		BP_R_ARM =  new /datum/organ_description/arm/right/terra_therma_synthetic/full,
+		BP_L_LEG =  new /datum/organ_description/leg/left/terra_therma_synthetic/full,
+		BP_R_LEG =  new /datum/organ_description/leg/right/terra_therma_synthetic/full
 		)
 
 	has_process = list(    // which required-process checks are conducted and defalut organs for them.
@@ -918,13 +755,13 @@
 
 	spawn_flags = CAN_JOIN
 
-/datum/species/artificer_guild_synthetic/get_bodytype()
-	return "Artificer Guild Synthetic"
+/datum/species/terra_therma_synthetic/get_bodytype()
+	return "Terra-Therma Synthetic"
 
-/datum/species/blackshield_synthetic
-	name = "Blackshield Synthetic"
+/datum/species/liberty_synthetic
+	name = "Liberty Synthetic"
 	name_plural = "synthetics"
-	default_form = FORM_BSSYNTH
+	default_form = FORM_LIBYNTH
 	obligate_name = TRUE
 	obligate_form = TRUE
 	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/stomp,  /datum/unarmed_attack/kick, /datum/unarmed_attack/bite)
@@ -946,13 +783,13 @@
 	darksight = 2
 
 	has_limbs = list(
-		BP_CHEST =  new /datum/organ_description/chest/blackshield_synthetic,
-		BP_GROIN =  new /datum/organ_description/groin/blackshield_synthetic,
-		BP_HEAD =   new /datum/organ_description/head/blackshield_synthetic,
-		BP_L_ARM =  new /datum/organ_description/arm/left/blackshield_synthetic/full,
-		BP_R_ARM =  new /datum/organ_description/arm/right/blackshield_synthetic/full,
-		BP_L_LEG =  new /datum/organ_description/leg/left/blackshield_synthetic/full,
-		BP_R_LEG =  new /datum/organ_description/leg/right/blackshield_synthetic/full
+		BP_CHEST =  new /datum/organ_description/chest/liberty_synthetic,
+		BP_GROIN =  new /datum/organ_description/groin/liberty_synthetic,
+		BP_HEAD =   new /datum/organ_description/head/liberty_synthetic,
+		BP_L_ARM =  new /datum/organ_description/arm/left/liberty_synthetic/full,
+		BP_R_ARM =  new /datum/organ_description/arm/right/liberty_synthetic/full,
+		BP_L_LEG =  new /datum/organ_description/leg/left/liberty_synthetic/full,
+		BP_R_LEG =  new /datum/organ_description/leg/right/liberty_synthetic/full
 		)
 
 	has_process = list(    // which required-process checks are conducted and default organs for them.
@@ -978,11 +815,11 @@
 
 	spawn_flags = CAN_JOIN
 
-/datum/species/blackshield_synthetic/get_bodytype()
-	return "Blackshield Synthetic"
+/datum/species/liberty_synthetic/get_bodytype()
+	return "Liberty Synthetic"
 
 /datum/species/church_synthetic
-	name = "Absolute Synthetic"
+	name = "Knight Synth"
 	name_plural = "synthetics"
 	default_form = FORM_CHURCHSYNTH
 	obligate_name = TRUE
@@ -1040,7 +877,7 @@
 	spawn_flags = CAN_JOIN
 
 /datum/species/church_synthetic/get_bodytype()
-	return "Absolute Synthetic"
+	return "Knight Synthetic"
 
 /datum/species/nashef_synthetic
 	name = "Nashef-Agunabi"
@@ -1111,18 +948,31 @@
 	siemens_coefficient = 3 //conductive
 	darksight = 3
 	virus_immune = TRUE
+	always_blood = TRUE
+	always_ingest = TRUE
 	breath_type = null
 	poison_type = null
 	hunger_factor = 2
-	spawn_flags = IS_RESTRICTED
+	spawn_flags = CAN_JOIN
 
 	burn_mod = 1.15
 	brute_mod = 1.15
-	toxins_mod = -1 // This is dumb. I hope it works. -R4d6
+	toxins_mod = 1 // fuck toxins_mod, we use a perk for this
 	oxy_mod = 0
 
+	cold_discomfort_level = 283
+	heat_discomfort_level = 313
+
+	cold_level_1 = 258 //Default 270
+	cold_level_2 = 243 //Default 230
+	cold_level_3 = 228  //Default 200
+
+	heat_level_1 = 333 //Default 330
+	heat_level_2 = 353 //Default 380
+	heat_level_3 = 372 //Default 460
+
 	has_process = list(
-		BP_BRAIN = /obj/item/organ/internal/brain/slime
+		BP_BRAIN = /obj/item/organ/internal/brain/slime,
 		)
 
 	breath_type = null
@@ -1142,10 +992,9 @@
 		BP_R_LEG =  new /datum/organ_description/leg/right/slime
 	)
 
-	perks = list(PERK_SPEED, PERK_LIMB_REGEN, PERK_MIND_BOOST, PERK_BODY_BOOST)
+	perks = list(PERK_LIMB_REGEN, PERK_SLIMEBODY)
 
-/datum/species/slime/handle_death(var/mob/living/carbon/human/H)
+/*/datum/species/slime/handle_death(var/mob/living/carbon/human/H)
 	spawn(1)
 		if(H)
-			H.gib()
-
+			H.gib()*/

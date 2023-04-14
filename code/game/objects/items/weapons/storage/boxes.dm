@@ -33,6 +33,12 @@
 	contained_sprite = TRUE
 	health = 20
 
+	cant_hold = list(/obj/item/storage/pouch,
+					 /obj/item/storage/firstaid,
+					 /obj/item/storage/toolbox,
+					 /obj/item/storage/briefcase,
+					 /obj/item/storage/secure/briefcase) //No more funky stacking pomches
+
 /obj/item/storage/box/Initialize(mapload)
 	. = ..()
 	update_icon()
@@ -815,7 +821,7 @@ Boxes with clothing on them, unable to put them back if taken out because...
 // Guild boxes, exclusively used to mass craft guild parts.
 /obj/item/storage/box/guild_manip
 	name = "box of forged manipulators"
-	desc = "A box containing five forged manipulators, the best that Nadezhda can produce."
+	desc = "A box containing five forged manipulators, the best that Liberty can produce."
 	icon_state = "box_of_doom"
 	illustration = "guild"
 
@@ -825,7 +831,7 @@ Boxes with clothing on them, unable to put them back if taken out because...
 
 /obj/item/storage/box/guild_bin
 	name = "box of cast matter bins"
-	desc = "A box containing five cast matter bins, the best that Nadezhda can produce."
+	desc = "A box containing five cast matter bins, the best that Liberty can produce."
 	icon_state = "box_of_doom"
 	illustration = "guild"
 
@@ -835,7 +841,7 @@ Boxes with clothing on them, unable to put them back if taken out because...
 
 /obj/item/storage/box/guild_laser
 	name = "box of perfected micro-lasers"
-	desc = "A box containing five perfected micro-lasers, the best that Nadezhda can produce."
+	desc = "A box containing five perfected micro-lasers, the best that Liberty can produce."
 	icon_state = "box_of_doom"
 	illustration = "guild"
 
@@ -845,7 +851,7 @@ Boxes with clothing on them, unable to put them back if taken out because...
 
 /obj/item/storage/box/guild_scanner
 	name = "box of perfected scanning modules"
-	desc = "A box containing five perfected scanning modules, the best that Nadezhda can produce."
+	desc = "A box containing five perfected scanning modules, the best that Liberty can produce."
 	icon_state = "box_of_doom"
 	illustration = "guild"
 
@@ -855,7 +861,7 @@ Boxes with clothing on them, unable to put them back if taken out because...
 
 /obj/item/storage/box/guild_capacitor
 	name = "box of ultra capacitors"
-	desc = "A box containing five ultra capacitors, the best that Nadezhda can produce."
+	desc = "A box containing five ultra capacitors, the best that Liberty can produce."
 	icon_state = "box_of_doom"
 	illustration = "guild"
 

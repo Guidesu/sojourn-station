@@ -1,37 +1,42 @@
 /obj/machinery/vending/one_star
+<<<<<<< HEAD
 	name = "Greyson Positronic Vendor"
 	desc = "A holographic vendor made by Greyson Positronic."
+=======
+	name = "One Star Vendor"
+	desc = "A vendor of the One Star variety typical made by SR."
+>>>>>>> 4bd93c3096bf14929408d73a835c63d351dc40aa
 	icon = 'icons/obj/machines/one_star/vending.dmi'
 	icon_state = "vendor_guns"
 	icon_vend = "vendor_printing"
 	//product_slogans = "Usually no carcinogens!;Best sports!;Become the strongest!"
 	//product_ads = "Strength!;Cheap!;There are contraindications, it is recommended to consult a medical specialist."
-	vendor_department = DEPARTMENT_GREYSON
+	vendor_department = DEPARTMENT_SIMILACRUM
 	alt_currency_path = /obj/item/stack/os_cash
 
 /obj/machinery/vending/one_star/Initialize()
 	. = ..()
 	set_light(1.4, 1, COLOR_LIGHTING_CYAN_BRIGHT)
-	earnings_account = department_accounts[DEPARTMENT_GREYSON]
+	earnings_account = department_accounts[DEPARTMENT_SIMILACRUM]
 
 /obj/machinery/vending/one_star/guns
-	desc = "A vendor of the One Star variety typical made by GP. This one sells firearms of the GP variety."
+	desc = "A vendor of the One Star variety typical made by SD. This one sells firearms of the SR variety."
 	icon_state = "vendor_guns"
 
 	products = list(
-		/obj/item/gun/energy/cog = 3,
-		/obj/item/gun/projectile/spring = 2,
-		/obj/item/gun/projectile/rivet = 1
+		/obj/item/gun/energy/cog = 3
 		)
 
 	prices = list(
-		/obj/item/gun/energy/cog = 50,
-		/obj/item/gun/projectile/spring = 100,
-		/obj/item/gun/projectile/rivet = 200
+		/obj/item/gun/energy/cog = 50
 		)
 
 /obj/machinery/vending/one_star/food
+<<<<<<< HEAD
 	desc = "A holographic vendor made by Greyson Positronic. This one sells a variety of food."
+=======
+	desc = "A vendor of the One Star variety typical made by SR. This one sells food variety."
+>>>>>>> 4bd93c3096bf14929408d73a835c63d351dc40aa
 	product_slogans = "It's a Vending Machine!;We all eat lunch from a Vending Machine!"
 	product_ads = "You must be the new guy!;Hows is your child doing?;Real Meals!;Some people say its not real food but many quite like and many think you will to!"
 
@@ -64,5 +69,11 @@
 		)
 
 /obj/machinery/vending/one_star/health
+<<<<<<< HEAD
 	desc = "A holographic vendor made by Greyson Positronic. This one sells medical paraphernalia of the GP variety."
 	icon_state = "vendor_health"
+=======
+	desc = "A vendor of the One Star variety typical made by SR. This one sells medical paraphernalia of the SD variety."
+	icon_state = "vendor_health"
+
+>>>>>>> 4bd93c3096bf14929408d73a835c63d351dc40aa

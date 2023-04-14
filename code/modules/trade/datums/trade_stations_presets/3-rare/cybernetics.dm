@@ -2,20 +2,20 @@
 	spawn_probability = 0 //were bugged
 	name_pool = list("FTS 'PentaOptium'" = "Free Trade Station 'PentaOptium'. \"Oh, you, I think I can sell you some cybernetics.\"")
 	inventory = list(
-		"Soteria" = list(
+		"CAPSA" = list(
 			/obj/item/organ/external/robotic/moebius/l_arm,
 			/obj/item/organ/external/robotic/moebius/r_arm,
 			/obj/item/organ/external/robotic/moebius/l_leg,
 			/obj/item/organ/external/robotic/moebius/r_leg,
 			/obj/item/organ/external/robotic/moebius/groin
 		),
-		"Salvaged Greyson Tech" = list(
+		"Salvaged Similacrum Tech" = list(
 			/obj/item/organ/external/robotic/one_star/l_arm,
 			/obj/item/organ/external/robotic/one_star/r_arm,
 			/obj/item/organ/external/robotic/one_star/l_leg,
 			/obj/item/organ/external/robotic/one_star/r_leg
 		),
-		"Artificer Guild" = list(
+		"Terra-Therma Worker's Union" = list(
 			/obj/item/organ/external/robotic/technomancer/l_arm,
 			/obj/item/organ/external/robotic/technomancer/r_arm,
 			/obj/item/organ/external/robotic/technomancer/l_leg,

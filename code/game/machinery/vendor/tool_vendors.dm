@@ -36,7 +36,6 @@
 					/obj/item/clothing/gloves/insulated/cheap = 4,
 					/obj/item/clothing/gloves/insulated = 2,
 					/obj/item/storage/pouch/engineering_tools = 2,
-					/obj/item/storage/pouch/engineering_supply = 2,
 					/obj/item/weldpack/canister = 4,
 					/obj/item/weldpack = 2)
 	prices = list(/obj/item/tool/hammer = 30,
@@ -51,8 +50,7 @@
 					/obj/item/tool/screwdriver = 30,
 					/obj/item/clothing/gloves/insulated/cheap = 80,
 					/obj/item/clothing/gloves/insulated = 600,
-					/obj/item/storage/pouch/engineering_tools = 150,
-					/obj/item/storage/pouch/engineering_supply = 300,
+					/obj/item/storage/pouch/engineering_tools = 250,
 					/obj/item/weldpack/canister = 200,
 					/obj/item/weldpack = 300)
 
@@ -79,7 +77,7 @@
 
 //This one's from bay12
 /obj/machinery/vending/engineering
-	name = "Artificer's Tool Maker"
+	name = "Union's Tool Maker"
 	desc = "Everything you need for do-it-yourself colony repair."
 	product_slogans = "Home project planned? Do it yourself!;Legally, I have to ask you not to use those tools to hack into anything.;Locked door? Tools here!;Big project and you're missing your precious wrench? I bet I can replace it!;The most robust tools on the colony!"
 	product_ads = "Best tools!;Cheap!;Reliable!;Do-It-Yourself!"
@@ -88,7 +86,7 @@
 	vendor_department = DEPARTMENT_ENGINEERING
 	products = list(/obj/item/clothing/head/hardhat = 4,
 					/obj/item/storage/belt/utility = 4,
-					/obj/item/storage/belt/webbing/artificer = 2,
+					/obj/item/storage/belt/webbing/union = 2,
 					/obj/item/clothing/glasses/powered/meson = 4,
 					/obj/item/clothing/glasses/powered/night/guild = 4,
 					/obj/item/clothing/gloves/insulated = 4,
@@ -126,7 +124,7 @@
 					/obj/item/stock_parts/console_screen = 5)
 	prices = list(/obj/item/clothing/head/hardhat = 4,
 					/obj/item/storage/belt/utility = 75,
-					/obj/item/storage/belt/webbing/artificer = 2500,
+					/obj/item/storage/belt/webbing/union = 2500,
 					/obj/item/clothing/glasses/powered/meson = 150,
 					/obj/item/clothing/glasses/powered/night/guild = 1200,
 					/obj/item/clothing/gloves/insulated = 600,
@@ -221,10 +219,9 @@
 					 /obj/item/computer_hardware/hard_drive/portable/design/computer = 10,
 					 /obj/item/computer_hardware/hard_drive/portable/design/security = 5,
 					 /obj/item/computer_hardware/hard_drive/portable/design/guns/cheap_guns = 5,
-					 /obj/item/computer_hardware/hard_drive/portable/design/guns/armstrong = 2,
+					 /obj/item/computer_hardware/hard_drive/portable/design/guns/rosefield = 2,
 					 /obj/item/computer_hardware/hard_drive/portable/design/nonlethal_ammo = 10,
-					 /obj/item/computer_hardware/hard_drive/portable/design/strelki = 2,
-					 /obj/item/computer_hardware/hard_drive/portable/design/guns/survivalrifle = 2,
+					 /obj/item/computer_hardware/hard_drive/portable/design/guns/duty = 2,
 					 /obj/item/computer_hardware/hard_drive/portable/design/powerwork = 3,
 					 /obj/item/computer_hardware/hard_drive/portable/advanced/coin = 300,
 					 /obj/item/circuitboard/autolathe = 3,
@@ -242,10 +239,9 @@
 				 /obj/item/computer_hardware/hard_drive/portable/design/computer = 250,
 				 /obj/item/computer_hardware/hard_drive/portable/design/security = 300,
 				 /obj/item/computer_hardware/hard_drive/portable/design/guns/cheap_guns = 500,
-				 /obj/item/computer_hardware/hard_drive/portable/design/guns/armstrong = 600,
+				 /obj/item/computer_hardware/hard_drive/portable/design/guns/rosefield = 600,
 				 /obj/item/computer_hardware/hard_drive/portable/design/nonlethal_ammo = 350,
-				 /obj/item/computer_hardware/hard_drive/portable/design/strelki = 850,
-				 /obj/item/computer_hardware/hard_drive/portable/design/guns/survivalrifle = 450,
+				 /obj/item/computer_hardware/hard_drive/portable/design/guns/duty = 850,
 				 /obj/item/computer_hardware/hard_drive/portable/advanced/coin = 60,
 				 /obj/item/computer_hardware/hard_drive/portable/design/powerwork = 300,
 				 /obj/item/circuitboard/autolathe = 350,

@@ -93,17 +93,17 @@
 						)
 
 /datum/technology/sst
-	name = "Soteria Surface Tenstion Project"
-	desc = "The development of non-lethal weapons for Soteria Medical using GP technology."
+	name = "CAPSA Surface Tenstion Project"
+	desc = "The development of non-lethal weapons for CAPSA Medical using SR technology."
 	x = 0.6
 	y = 0.3
 	tech_type = RESEARCH_COMBAT
 	icon = "abnegate"
 	required_technologies = list(/datum/technology/advanced_nonlethal)
-	required_tech_levels = list(RESEARCH_GREYSON = 3) //Likely people will get parts/cog/bots for this
+	required_tech_levels = list(RESEARCH_SIMILACRUM = 3) //Likely people will get parts/cog/bots for this
 	cost = 5625
-	unlocks_designs = list(/datum/design/research/item/greyson/abnegate,
-						/datum/design/research/item/greyson/humility,)
+	unlocks_designs = list(/datum/design/research/item/similacrum/abnegate,
+						/datum/design/research/item/similacrum/humility,)
 
 /datum/technology/hardsuit_nonlethal
 	name = "Mounted Non-Lethal"
@@ -211,13 +211,9 @@
 	cost = 1500
 
 	unlocks_designs = list(
-							/datum/design/research/item/weapon/c20r,
-							/datum/design/research/item/ammo/smg_mag/lethal,
-							/datum/design/research/item/ammo/smg_mag/rubber,
 							/datum/design/research/item/weapon/katana,
 							/datum/design/research/item/ammo/rifle_75,
 							/datum/design/research/item/ammo/light_rifle_257,
-							/datum/design/research/item/ammo/kurtz_laser
 						)
 
 /datum/technology/exotic_gunmods
@@ -259,7 +255,6 @@
 
 	unlocks_designs = list(/datum/design/research/item/weapon/nuclear_gun,
 							/datum/design/research/item/weapon/lasercannon,
-							/datum/design/research/item/ammo/heavy_rifle_408,
 							/datum/design/research/item/weapon/centauri
 							)
 
@@ -292,8 +287,8 @@
 	required_tech_levels = list()
 	cost = 750
 
-	unlocks_designs = list(/datum/design/research/item/clothing/soteriaarmorchest,
-							 /datum/design/research/item/clothing/soteriaarmorhead,
+	unlocks_designs = list(/datum/design/research/item/clothing/pirsarmorchest,
+							 /datum/design/research/item/clothing/pirsarmorhead,
 							 /datum/design/research/item/clothing/rig_cheap,
 							 /datum/design/research/item/clothing/tinfoil)
 

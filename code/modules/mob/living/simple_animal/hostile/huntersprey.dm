@@ -56,7 +56,7 @@
 		qdel(src)
 		return
 	if(chancedrop == 2)
-		new /obj/item/gun/projectile/boltgun/sa (src.loc)
+		new /obj/item/gun/projectile/boltgun/rosefield (src.loc)
 		new	/obj/item/ammo_magazine/rifle_75 (src.loc)
 		new /obj/item/ammo_magazine/ammobox/rifle_75 (src.loc)
 		new /obj/item/clothing/suit/space/void/SCAF/blackshield (src.loc)
@@ -64,8 +64,8 @@
 		return
 	if(chancedrop == 3)
 		new /obj/item/tool/sword/katana/nano (src.loc)
-		new /obj/item/clothing/suit/armor/vest/soteriasuit (src.loc)
-		new /obj/item/clothing/head/helmet/soteriasuit (src.loc)
+		new /obj/item/clothing/suit/armor/vest/pirssuit (src.loc)
+		new /obj/item/clothing/head/helmet/pirssuit (src.loc)
 		qdel(src)
 		return
 	qdel(src)

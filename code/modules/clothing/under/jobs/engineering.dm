@@ -1,19 +1,12 @@
 //Contains: Engineering department jumpsuits
-/obj/item/clothing/under/rank/exultant
-	name = "guild master's jumpsuit"
-	desc = "A blue-yellow engineering jumpsuit worn by Guild Masters. It has good radiation shielding."
+/obj/item/clothing/under/rank/chief
+	name = "union chief's jumpsuit"
+	desc = "A blue-yellow engineering jumpsuit worn by Union Chief. It has good radiation shielding."
 	icon_state = "chiefengineer"
 	item_state = "g_suit"
-	armor_list = list(
-		melee = 0,
-		bullet = 0,
-		energy = 0,
-		bomb = 0,
-		bio = 0,
-		rad = 30
-	)
+	armor_list = list(melee = 0, bullet = 0, energy = 0, bomb = 0, bio = 0, rad = 30)
 
-/obj/item/clothing/under/rank/exultant/verb/toggle_style()
+/obj/item/clothing/under/rank/chief/verb/toggle_style()
 	set name = "Adjust Style"
 	set category = "Object"
 	set src in usr
@@ -23,9 +16,15 @@
 
 	var/mob/M = usr
 	var/list/options = list()
+<<<<<<< HEAD
 	options["GM jumpsuit"] = "chiefengineer"
 	options["GM jumpskirt"] = "artificer_jumpskirt_master"
 	options["GM High Visiblity Jumpsuit"] = "GM uniform" // Sprites by Ezoken/Dromkii
+=======
+	options["UC jumpsuit"] = "chiefengineer"
+	options["UC jumpskirt"] = "artificer_jumpskirt_master"
+	options["UC High Visiblity Jumpsuit"] = "GM uniform" // Sprites by Ezoken/Dromkii
+>>>>>>> 4bd93c3096bf14929408d73a835c63d351dc40aa
 
 	var/choice = input(M,"What kind of style do you want?","Adjust Style") as null|anything in options
 
@@ -85,7 +84,7 @@
 		return 1
 
 /obj/item/clothing/under/rank/roboticist
-	desc = "An orange and tan Soteria jumpsuit designed for mechanical work."
+	desc = "An orange and tan CAPSA jumpsuit designed for mechanical work."
 	name = "roboticist's jumpsuit"
 	icon_state = "robotics"
 	item_state = "bl_suit"
@@ -104,16 +103,15 @@
 		rad = 100 //Rad proof
 	)
 
-/obj/item/clothing/under/rank/engineer/adv_master
-	desc = "A plastic-coated and iron-woven engineering suit worn by Guild Masters heading into dangerously radioactive areas for repair work. Offers full radiation protection."
-	name = "adept's padded emergency suit"
+/obj/item/clothing/under/rank/engineer/ert_engineer
+	name = "padded emergency response jumpsuit"
+	desc = "A plastic-coated and iron-woven engineering suit worn by emergency response teams heading into dangerously radioactive areas for repair work."
 	icon_state = "chiefengineeradv"
 	item_state = "chiefengineeradv"
-	armor_list = list(
-		melee = 30, //if they are not waring any armor over this then we give *something*
-		bullet = 30,
-		energy = 45,
-		bomb = 80,
-		bio = 70,
-		rad = 100 //Rad proof
-	)
+	armor_list = list(melee = 0, bullet = 0, energy = 0, bomb = 0, bio = 0, rad = 30)
+
+/obj/item/clothing/under/rank/miner
+	name = "union miner uniform"
+	desc = "A snappy union jumpsuit to handle the harshness of the mines."
+	icon_state = "miner"
+	item_state = "miner"

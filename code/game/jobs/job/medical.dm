@@ -1,19 +1,19 @@
-/datum/job/cmo
-	title = "Chief Biolab Overseer"
-	flag = CBO
+/datum/job/cso
+	title = "Chief Surgeon Overseer"
+	flag = CSO
 	head_position = 1
 	department = DEPARTMENT_MEDICAL
 	department_flag = MEDICAL | COMMAND
 	faction = MAP_FACTION
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Nadezhda Council"
+	supervisors = "the Liberty Council"
 	difficulty = "Stressful."
 	selection_color = "#94a87f"
 	req_admin_notify = 1
 	wage = WAGE_COMMAND
-	outfit_type = /decl/hierarchy/outfit/job/medical/cmo
-	disallow_species = list(FORM_AGSYNTH, FORM_BSSYNTH, FORM_CHURCHSYNTH, FORM_NASHEF)
+	outfit_type = /decl/hierarchy/outfit/job/medical/cso
+	disallow_species = list(FORM_TERRAYNTH, FORM_LIBYNTH, FORM_CHURCHSYNTH, FORM_NASHEF)
 
 	access = list(
 		access_moebius, access_medical_equip, access_morgue, access_genetics, access_heads,
@@ -33,7 +33,7 @@
 		STAT_COG = 25
 	)
 
-	perks = list(PERK_MEDICAL_EXPERT, PERK_ADVANCED_MEDICAL, PERK_SI_SCI, PERK_CHEMIST)
+	perks = list(PERK_MEDICAL_EXPERT, PERK_ADVANCED_MEDICAL, PERK_SCIENCE, PERK_CHEMIST)
 
 	software_on_spawn = list(/datum/computer_file/program/comm,
 							 /datum/computer_file/program/suit_sensors,
@@ -41,11 +41,11 @@
 							 /datum/computer_file/program/chem_catalog,
 							 /datum/computer_file/program/reports)
 
-	description = "The Chief Biolab Overseer is the head of the medical branch of the Soteria Institute, preserving and improving lives.<br>\
+	description = "The Chief Biolab Overseer is the head of the medical branch of the CAPSA, preserving and improving lives.<br>\
 	Your main responsibility is to keep everyone alive, as is the objective of your department. Prioritize health over most other concerns. <br>\
 	A variety of medical staff work under your command. Although these roles are clear-cut compared to the research branch, direct them appropriately.<br>\
 	Of course, remember that you are a doctor yourself - feel free to help with less specialized activities to ease the burden.<br>\
-	The Medical wing also falls under the ownership of Soteria. You may use their resources - and they may use yours - as needed."
+	The Medical wing also falls under the ownership of CAPSA. You may use their resources - and they may use yours - as needed."
 
 	duties = "Direct the doctors under your command towards the bettering of all mankind.<br>\
 	Dispatch your paramedics to distress calls, and corpse recoveries as needed.<br>\
@@ -55,28 +55,28 @@
 	In times of crisis, lock down the medbay to protect those within, from outside threats."
 
 /obj/landmark/join/start/cmo
-	name = "Chief Biolab Overseer"
+	name = "Chief Surgeon Overseer"
 	icon_state = "player-green-officer"
-	join_tag = /datum/job/cmo
+	join_tag = /datum/job/cso
 
 /datum/job/doctor
-	title = "Soteria Doctor"
+	title = "Medical Doctor"
 	flag = DOCTOR
 	department = DEPARTMENT_MEDICAL
 	department_flag = MEDICAL
 	faction = MAP_FACTION
 	total_positions = 5
 	spawn_positions = 5
-	supervisors = "the Chief Biolab Overseer"
+	supervisors = "the Chief Surgeon Overseer"
 	difficulty = "Boring to Overwhelming."
 	selection_color = "#a8b69a"
 	wage = WAGE_PROFESSIONAL
 	minimum_character_age = 25
-	alt_titles = list("Soteria Medical Student"=/decl/hierarchy/outfit/job/medical/doctor/medStudent,"Soteria Nurse"=/decl/hierarchy/outfit/job/medical/doctor/medNurse, "Soteria Emergency Physician"=/decl/hierarchy/outfit/job/medical/doctor/medERPhys, "Soteria Surgeon"=/decl/hierarchy/outfit/job/medical/doctor/medSurgeon)
-	noob_name = "Soteria Medical Student"
+	alt_titles = list("Physician", "CAPSA Surgeon", "Nightingale")
+	noob_name = "Medical Intern"
 	outfit_type = /decl/hierarchy/outfit/job/medical/doctor
 	department_account_access = TRUE
-	disallow_species = list(FORM_AGSYNTH, FORM_BSSYNTH, FORM_CHURCHSYNTH, FORM_NASHEF)
+	disallow_species = list(FORM_TERRAYNTH, FORM_LIBYNTH, FORM_CHURCHSYNTH, FORM_NASHEF)
 
 	access = list(
 		access_moebius, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology,
@@ -105,24 +105,26 @@
 		Fill in at chemistry if a Chemist is unavailable."
 
 /obj/landmark/join/start/doctor
-	name = "Soteria Doctor"
+	name = "Medical Doctor"
 	icon_state = "player-green"
 	join_tag = /datum/job/doctor
 
-/datum/job/recovery_team
-	title = "Soteria Lifeline Technician"
-	flag = RECOVERYTEAM
+/datum/job/medic
+	title = "Paramedic"
+	flag = MEDIC
 	department = DEPARTMENT_MEDICAL
 	department_flag = MEDICAL
 	faction = MAP_FACTION
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "the Chief Biolab Overseer"
+	supervisors = "the Chief Surgeon Overseer"
 	difficulty = "Ungratifying."
+	noob_name = "First Aid Responder"
+	alt_titles = list("Emergency Medical Technician", "Protection & Recovery Team")
 	selection_color = "#a8b69a"
 	wage = WAGE_PROFESSIONAL
-	outfit_type = /decl/hierarchy/outfit/job/medical/recovery_team
-	disallow_species = list(FORM_AGSYNTH, FORM_CHURCHSYNTH, FORM_NASHEF)
+	outfit_type = /decl/hierarchy/outfit/job/medical/medic
+	disallow_species = list(FORM_TERRAYNTH, FORM_CHURCHSYNTH, FORM_NASHEF)
 
 	health_modifier = 5
 	perks = list(PERK_MEDICAL_EXPERT, PERK_CHEMIST)
@@ -144,9 +146,9 @@
 
 	description = "Members of the recovery team are not men of science nor medicine, they are strictly in charge of enforcing the chief biolabs orders and sometimes the chief research overseer's orders.<br>\
 	Your primary role is that of an armed thug for medical. You make sure that medical remains safe by ensuring people don't trespass or steal items and remove those who shouldn't be there, by force if necessary.<br>\
-	Your secondary responsibility is that of an soteria enforcer. Actions that require in house enforcement such as aiding doctors and security with violent patients in medical, securing the virology lab during an outbreak, and aiding in the destruction of escape slimes or kudzu from science.<br>\
+	Your secondary responsibility is that of an CAPSA enforcer. Actions that require in house enforcement such as aiding doctors and security with violent patients in medical, securing the virology lab during an outbreak, and aiding in the destruction of escape slimes or kudzu from science.<br>\
 	Your third duty is to aid medical doctors and act as a paramedic in fixing patients and collecting patients, this can include retrieving chemicals, doing basic triage, and going out to recover injured patients.<br>\
-	You are fully licensed to enforce the will of the overseer and to protect the soteria, its staff, and your patients with your personal weapons and armor.<br>\
+	You are fully licensed to enforce the will of the overseer and to protect the CAPSA, its staff, and your patients with your personal weapons and armor.<br>\
 	It's worth noting that you function heavily as a nurse when not acting as muscle and treatment of patients should be priority, in particular when assisting doctors."
 
 	duties = "Act as a guard for medical, ensuring unneeded colonist leave and nothing is stolen.<br>\
@@ -154,19 +156,14 @@
 		Act as a nurse for minor injuries, treating patients that a doctor needn't bother with.<br>\
 		Ensure that any outbreaks are contained, such as slimes, infected monkeys, or kudzu."
 
-/obj/landmark/join/start/chemist //This says chemist so I didn't have to edit the map shit when I changed this. Fix later. || Update: Whoever did this, you never fucking fixed it. I hate you. - Rebel0
-	name = "Soteria Recovery Team"
+/obj/landmark/join/start/medic////////////
+	name = "Paramedic"
 	icon_state = "player-green"
-	join_tag = /datum/job/recovery_team
-
-/obj/landmark/join/start/paramedic // Same thing as above tbh. || I still hate you. -Rebel0
-	name = "Soteria Recovery Team"
-	icon_state = "player-green"
-	join_tag = /datum/job/recovery_team
+	join_tag = /datum/job/medic
 
 
 /datum/job/psychiatrist
-	title = "Soteria Psychiatrist"
+	title = "Liaison Psychiatrist"
 	flag = PSYCHIATRIST
 	department = DEPARTMENT_MEDICAL
 	department_flag = MEDICAL
@@ -174,15 +171,15 @@
 	total_positions = 1
 	spawn_positions = 1
 	wage = WAGE_PROFESSIONAL
-	supervisors = "the Soteria Biolab Overseer"
+	supervisors = "the Chief Surgeon Overseer"
 	difficulty = "Soul Crushing."
 	selection_color = "#a8b69a"
-	alt_titles = list("Soteria Psychologist", "Soteria Empath")
+	alt_titles = list("Psychiatrist")
 	outfit_type = /decl/hierarchy/outfit/job/medical/psychiatrist
 	access = list(
 		access_moebius, access_medical_equip, access_morgue, access_psychiatrist, access_chemistry, access_medical_suits
 	)
-	disallow_species = list(FORM_AGSYNTH, FORM_BSSYNTH, FORM_CHURCHSYNTH, FORM_NASHEF)
+	disallow_species = list(FORM_TERRAYNTH, FORM_LIBYNTH, FORM_CHURCHSYNTH, FORM_NASHEF)
 
 	perks = list(PERK_MEDICAL_EXPERT, PERK_PSI_PSYCHOLOGIST, PERK_CHEMIST)
 
@@ -200,7 +197,7 @@
 	In some ways you are a professional conversationalist. Despite knowing advanced therapy techniques, sometimes a mere chat can work wonders.<br>\
 	More eventful days may involve you having particularly unstable colonists sectioned, or interviewing criminals in coordination with Security.<br>\
 	Remember that patient confidentiality is highly important in your profession. Keep sensitive information between you and the patient.<br>\
-	Soteria psychs are also one of the most psionically adept members of the colony, with an innate understanding of how the mind works.<br>\
+	CAPSA psychs are also one of the most psionically adept members of the colony, with an innate understanding of how the mind works.<br>\
 	If you become a psion, you have a greater variety of beneficial powers which you can use to aid the colony."
 
 	duties = "Speak with anyone who desires help, no matter their rank or relation.<br>\
@@ -209,6 +206,6 @@
 		Use your psionic gifts to assist the colony."
 
 /obj/landmark/join/start/psychiatrist
-	name = "Soteria Psychiatrist"
+	name = "Liaison Psychiatrist"
 	icon_state = "player-green"
 	join_tag = /datum/job/psychiatrist

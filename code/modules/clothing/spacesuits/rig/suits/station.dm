@@ -113,7 +113,7 @@
 
 
 /***************************************
-Advanced Voidsuit: Guild Master
+Advanced Voidsuit: Union Chief
 ****************************************/
 /obj/item/rig/ce
 	name = "advanced hardsuit control module"
@@ -173,11 +173,11 @@ Advanced Voidsuit: Guild Master
 	mag_slow = 1
 
 /***************************************
-Technomancer RIG
+Union RIG
 ***************************************/
 /obj/item/rig/techno
-	name = "technomancer suit control module"
-	suit_type = "technomancer RIG suit"
+	name = "Terra-Therma Worker's Union suit control module"
+	suit_type = "Terra-Therma Worker's Union RIG suit"
 	desc = "An advanced RIG suit that protects against hazardous, low pressure and high temperature environments."
 	icon_state = "techno_rig"
 	armor_list = list(
@@ -277,7 +277,7 @@ Technomancer RIG
 		)
 
 /***************************************
-	Adv Hazmat: Rnd/CRO
+	Adv Hazmat: Rnd/RP
 ****************************************/
 /obj/item/rig/advhazmat
 	name = "Advanced AMI control module"
@@ -375,7 +375,7 @@ Technomancer RIG
 /obj/item/rig/recovery_suit
 	name = "recovery team suit control module"
 	suit_type = "Recovery Team hardsuit"
-	desc = "An upgraded hardsuit designed by the Soteria for their Recovery Team division. While not as heavily armored as a proper hardsuit, the inbuilt medical systems make it highly prized. \
+	desc = "An upgraded hardsuit designed by the CAPSA for their Recovery Team division. While not as heavily armored as a proper hardsuit, the inbuilt medical systems make it highly prized. \
 	It is best suited for surviving and combating wild life, but has reasonably decent kevlar plating and impact pads to absorb bullets and energy blasts."
 	icon_state = "response_team"
 	armor_list = list(

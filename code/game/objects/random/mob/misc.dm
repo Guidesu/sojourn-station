@@ -1,4 +1,4 @@
-//Random mob spawners unique to sojourn, these should primarily be ones for the colony and surrounding areas.
+//Random mob spawners unique to liberty, these should primarily be ones for the colony and surrounding areas.
 //renders
 /obj/random/mob/render
 	name = "random render"
@@ -267,6 +267,17 @@
 		/mob/living/simple_animal/hostile/republicon/range = 1
 		))
 
+//Space
+/obj/random/mob/space_balkan
+	name = "random balkan military mob"
+	icon_state = "hostilemob-blue"
+	alpha = 128
+
+/obj/random/mob/space_balkan/item_to_spawn()
+	return pickweight(list(/mob/living/carbon/superior_animal/human/balkan = 20,
+		/mob/living/carbon/superior_animal/human/balkan/sts = 10,
+		/mob/living/carbon/superior_animal/human/balkan/bren = 5
+		))
 
 //local fauna - surface
 /obj/random/mob/tengolo

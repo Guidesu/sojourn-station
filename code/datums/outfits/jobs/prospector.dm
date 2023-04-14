@@ -1,25 +1,32 @@
-/decl/hierarchy/outfit/job/foreman
-	name = OUTFIT_JOB_NAME("Prospectors - Foreman")
-	glasses = /obj/item/clothing/glasses/sunglasses
-	uniform = /obj/item/clothing/under/sports
+/decl/hierarchy/outfit/job/shepherd
+	name = OUTFIT_JOB_NAME("Fontaine Heavy Industries - Field Shepherd")
+	uniform = /obj/item/clothing/under/turtleneck/fontaine
+	suit = /obj/item/clothing/suit/armor/shepherd
+	glasses = /obj/item/clothing/glasses/sunglasses/fontaine
+	gloves = /obj/item/clothing/gloves/thick/fontaine
 	l_ear = /obj/item/device/radio/headset/heads/foreman
-	shoes = /obj/item/clothing/shoes/jackboots
+	shoes = /obj/item/clothing/shoes/jackboots/fontaine
 	id_type = /obj/item/card/id/black
 	pda_type = /obj/item/modular_computer/pda/cargo
 
-/decl/hierarchy/outfit/job/pro
-	name = OUTFIT_JOB_NAME("Prospectors - Prospector")
-	uniform = /obj/item/clothing/under/turtleneck
+/decl/hierarchy/outfit/job/trapper
+	name = OUTFIT_JOB_NAME("Fontaine Heavy Industries - Trapper")
+	uniform = /obj/item/clothing/under/turtleneck/fontaine/trapper
+	suit = /obj/item/clothing/suit/greatcoat/trapper
+	glasses = /obj/item/clothing/glasses/sunglasses/esquimal
+	gloves = /obj/item/clothing/gloves/thick/fontaine
 	l_ear = /obj/item/device/radio/headset/headset_pro
-	shoes = /obj/item/clothing/shoes/jackboots
+	shoes = /obj/item/clothing/shoes/jackboots/fontaine
 	id_type = /obj/item/card/id/black
 	pda_type = /obj/item/modular_computer/pda/cargo
 
-/decl/hierarchy/outfit/job/salv
-	name = OUTFIT_JOB_NAME("Prospectors - Salvager")
-	uniform = /obj/item/clothing/under/overalls/jumpsuitfoundry
+/decl/hierarchy/outfit/job/shipbreaker
+	name = OUTFIT_JOB_NAME("Fontaine Heavy Industries - Shipbreaker")
+	uniform = /obj/item/clothing/under/turtleneck/fontaine
+	suit = /obj/item/clothing/suit/storage/scavengerarmor
+	glasses = /obj/item/clothing/glasses/sunglasses/fontaine
+	gloves = /obj/item/clothing/gloves/thick/fontaine
 	l_ear = /obj/item/device/radio/headset/headset_pro
-	shoes = /obj/item/clothing/shoes/jackboots
+	shoes = /obj/item/clothing/shoes/jackboots/fontaine
 	id_type = /obj/item/card/id/black
 	pda_type = /obj/item/modular_computer/pda/cargo
-

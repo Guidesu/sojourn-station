@@ -8,8 +8,8 @@
 	var/codelen = 4
 	locked = 1
 
-/obj/structure/closet/crate/secure/loot/New()
-	..()
+/obj/structure/closet/crate/secure/loot/Initialize(mapload)
+	. = ..()
 	var/list/digits = list("1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
 
 	for(var/i in 1 to codelen)
@@ -86,8 +86,8 @@
 		if(79 to 84)
 			new/obj/item/toy/weapon/katana(src)
 		if(85 to 89)
-			new/obj/item/gun/projectile/basilisk(src)
-			new/obj/item/ammo_magazine/kurtz_50/hv(src)
+			new/obj/item/gun/projectile/martian(src)
+			new/obj/item/ammo_magazine/magnum_40/hv(src)
 		if(90)
 			new/obj/item/orion_ship(src)
 		if(91)

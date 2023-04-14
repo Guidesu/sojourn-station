@@ -53,7 +53,7 @@
 
 /obj/item/storage/backpack/proc/worn_check(var/no_message = FALSE)
 	var/mob/living/L = loc
-	if(istype(L, /mob/living/carbon/human) && L:species:reagent_tag == IS_SLIME) // Slimes don't have joints.
+	if(istype(L, /mob/living/carbon/human))
 		// TODO, special messages
 		return TRUE
 
@@ -396,7 +396,7 @@
 //Faction-specific satchels
 /obj/item/storage/backpack/satchel/ironhammer
 	name = "operator's satchel"
-	desc = "Done in a complementing shade for Nadezhda security forces, for the itinerant military contractor."
+	desc = "Done in a complementing shade for Liberty security forces, for the itinerant military contractor."
 	icon_state = "satchel_ironhammer"
 
 /obj/item/storage/backpack/satchel/neotheology

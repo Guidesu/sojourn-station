@@ -2,7 +2,7 @@
 // To make a design unprotect use -1
 // Technomancers
 /obj/item/computer_hardware/hard_drive/portable/design/components
-	disk_name = "Artificer's ARK-034 Components"
+	disk_name = "Union's ARK-034 Components"
 	icon_state = "technomancers"
 	license = 20
 	designs = list(
@@ -29,7 +29,7 @@
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/adv_tools
-	disk_name = "Artificer's IJIRO-451 Advanced Tools"
+	disk_name = "Union's IJIRO-451 Advanced Tools"
 	icon_state = "technomancers"
 	license = 10
 	designs = list(
@@ -61,7 +61,7 @@
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/parttoolpack
-	name = "Artificer's PAK-103 Tool Mods"
+	name = "Union's PAK-103 Tool Mods"
 	icon_state = "technomancers"
 	license = 10
 	designs = list(
@@ -86,7 +86,6 @@
 		/datum/design/autolathe/part/spikes,
 		/datum/design/autolathe/part/dampener,
 		/datum/design/research/item/weapon/toolmod/antistaining,
-		/datum/design/research/item/weapon/toolmod/vibcompensator,
 		/datum/design/research/item/weapon/toolmod/compensatedbarrel,
 		/datum/design/research/item/weapon/toolmod/hydraulic,
 		/datum/design/research/item/weapon/toolmod/injector,
@@ -94,7 +93,7 @@
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/circuits
-	disk_name = "Artificer's ESPO-830 Circuits"
+	disk_name = "Union's ESPO-830 Circuits"
 	icon_state = "technomancers"
 	license = 10
 	designs = list(
@@ -124,14 +123,14 @@
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/logistics
-	disk_name = "Artificer's LAT-018 Logistics"
+	disk_name = "Union's LAT-018 Logistics"
 	icon_state = "technomancers"
 
 	license = 3
 	designs = list(
 		/datum/design/autolathe/conveyor = 0,
 		/datum/design/autolathe/conveyor_switch = 0,
-		///datum/design/autolathe/circuit/smelter = 3, //Balance, no more rnd/guild abuse
+		/datum/design/autolathe/circuit/smelter = 3,
 		/datum/design/autolathe/circuit/sorter = 3,
 		/datum/design/autolathe/circuit/recycler,
 		/datum/design/autolathe/circuit/pile_ripper,
@@ -143,7 +142,7 @@
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/engineering
-	disk_name = "Artificer's Supply Factory"
+	disk_name = "Union's Supply Factory"
 	icon_state = "technomancers"
 	license = -1 //Should make this disk infinite.
 	designs = list(
@@ -230,7 +229,6 @@
 		/datum/design/autolathe/part/spikes,
 		/datum/design/autolathe/part/dampener,
 		/datum/design/research/item/weapon/toolmod/antistaining,
-		/datum/design/research/item/weapon/toolmod/vibcompensator,
 		/datum/design/research/item/weapon/toolmod/compensatedbarrel,
 		/datum/design/research/item/weapon/toolmod/hydraulic,
 		/datum/design/research/item/weapon/toolmod/injector,
@@ -245,7 +243,7 @@
 		)
 
 /obj/item/computer_hardware/hard_drive/portable/design/powerwork
-	disk_name = "Artificer's KW-841 Power Setters"
+	disk_name = "Union's KW-841 Power Setters"
 	icon_state = "technomancers"
 
 	license = 20
@@ -280,13 +278,13 @@
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/powerwork/factory
-	disk_name = "Artificer's MW-841 Power Setters"
+	disk_name = "Union's MW-841 Power Setters"
 	license = -1
 
 //This disk will never be in game as its used as a dummy disk for the nano forge
 /obj/item/computer_hardware/hard_drive/portable/design/nanoforge
 	name = "Nano-Forge Data Disk"
-	disk_name = "Artificer Data Collection"
+	disk_name = "Union Data Collection"
 	designs = list(
 	/datum/design/autolathe/misc/flashlight,
 	/datum/design/autolathe/misc/heavyflashlight,
@@ -320,7 +318,6 @@
 	/datum/design/autolathe/tool/circularsaw,
 	/datum/design/autolathe/tool/powered_hammer,
 	/datum/design/autolathe/tool/deadblow_hammer,
-	/datum/design/autolathe/tool/chainsaw,
 	/datum/design/autolathe/tool/hypersaw,
 	/datum/design/autolathe/tool/electric_screwdriver,
 	/datum/design/autolathe/tool/combi_driver,
@@ -353,7 +350,6 @@
 	/datum/design/autolathe/part/spikes,
 	/datum/design/autolathe/part/dampener,
 	/datum/design/research/item/weapon/toolmod/antistaining,
-	/datum/design/research/item/weapon/toolmod/vibcompensator,
 	/datum/design/research/item/weapon/toolmod/compensatedbarrel,
 	/datum/design/research/item/weapon/toolmod/hydraulic,
 	/datum/design/research/item/weapon/toolmod/injector,
@@ -390,11 +386,15 @@
 	/datum/design/autolathe/container/hcase_parts,
 	/datum/design/autolathe/container/hcase_engi,
 	/datum/design/autolathe/part/consolescreen,
+	/*
+	These are gone due to being strong and making start-of-game T4 upgrades. Removes any struggle. Go to Fontaine, Cargo, or Sci.
+
 	/datum/design/autolathe/part/guild_capa,
 	/datum/design/autolathe/part/guild_scanning,
 	/datum/design/autolathe/part/guild_manip,
 	/datum/design/autolathe/part/guild_laser,
 	/datum/design/autolathe/part/guild_bin,
+	*/
 	/datum/design/autolathe/part/igniter,
 	/datum/design/autolathe/part/signaler,
 	/datum/design/autolathe/part/sensor_infra,
