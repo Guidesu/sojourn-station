@@ -53,7 +53,7 @@ GLOBAL_VAR_INIT(GLOBAL_INSIGHT_MOD, 1)
 	var/sanity_passive_gain_multiplier = 1
 	var/sanity_invulnerability = 0
 	var/level
-	var/max_level = 100
+	var/max_level = 150 //Soj change to give a bit more breathing room
 	var/level_change = 0
 
 	var/insight
@@ -87,6 +87,7 @@ GLOBAL_VAR_INIT(GLOBAL_INSIGHT_MOD, 1)
 	var/list/datum/breakdown/breakdowns = list()
 
 	var/eat_time_message = 0
+	var/smoking_message = 51 //Used as a cooldown, agv smoke has around 250~ puffs
 
 	var/life_tick_modifier = 2	//How often is the onLife() triggered and by how much are the effects multiplied
 
@@ -213,7 +214,7 @@ GLOBAL_VAR_INIT(GLOBAL_INSIGHT_MOD, 1)
 		)
 		var/static/list/effects_30 = effects_40 + list(
 			.proc/effect_sound = 1,
-			.proc/effect_whisper = 25,
+			.proc/effect_quote = 25,
 		)
 		var/static/list/effects_20 = effects_30 + list(
 			.proc/effect_hallucination = 30
@@ -353,10 +354,17 @@ GLOBAL_VAR_INIT(GLOBAL_INSIGHT_MOD, 1)
 
 				GET_COMPONENT_FROM(I, /datum/component/inspiration, O) // If it's a valid inspiration, it should have this component. If not, runtime
 				var/list/L = I.calculate_statistics()
+				var/resting_times = resting
+				if(resting_times <= 0)
+					resting_times = 1
 				for(var/stat in L)
-					var/stat_up = L[stat] * 2 * resting
-					to_chat(owner, SPAN_NOTICE("Your [stat] stat goes up by [stat_up]"))
-					owner.stats.changeStat(stat, stat_up)
+					var/stat_up = L[stat] * 2 * resting_times
+					if((owner.stats.getStat(stat)) >= STAT_VALUE_MAXIMUM)
+						stat_up = 0
+						to_chat(owner, SPAN_NOTICE("You feel that you can't grow anymore better for today in [stat] with oddities"))
+					else
+						to_chat(owner, SPAN_NOTICE("Your [stat] stat goes up by [stat_up]"))
+						owner.stats.changeStat_withcap(stat, stat_up)
 
 				if(I.perk)
 					if(owner.stats.addPerk(I.perk))
@@ -386,7 +394,11 @@ GLOBAL_VAR_INIT(GLOBAL_INSIGHT_MOD, 1)
 				LAZYAPLUS(stat_change, pick(ALL_STATS_FOR_LEVEL_UP), 3)
 
 			for(var/stat in stat_change)
-				owner.stats.changeStat(stat, stat_change[stat])
+				if((owner.stats.getStat(stat)) >= STAT_VALUE_MAXIMUM)
+					to_chat(owner, SPAN_NOTICE("You can not increase [stat] anymore with simple resting."))
+				else
+					to_chat(owner, SPAN_NOTICE("Your [stat] stat goes up by [stat_change[stat]]"))
+					owner.stats.changeStat_withcap(stat, stat_change[stat])
 
 	owner.pick_individual_objective()
 
@@ -465,9 +477,32 @@ GLOBAL_VAR_INIT(GLOBAL_INSIGHT_MOD, 1)
 			add_rest(taste, snack_sanity_gain * 50/snack.taste_tag.len)*/
 
 /datum/sanity/proc/onSmoke(obj/item/clothing/mask/smokable/S)
-	changeLevel(SANITY_GAIN_SMOKE * S.quality_multiplier)
+	var/smoking_change = SANITY_GAIN_SMOKE * S.quality_multiplier
+	var/smoking_allowed = FALSE
+	var/smoking_no = FALSE
+	for(var/obj/structure/sign/warning/nosmoking/dont in oview(owner, 7))
+
+		smoking_no = TRUE
+	for(var/obj/structure/sign/warning/smoking/undont in oview(owner, 7))
+		smoking_allowed = TRUE
+
+	if(smoking_no && !owner.stats.getPerk(PERK_CHAINGUN_SMOKER))
+		smoking_message += 1
+		if(smoking_message >= 50)
+			to_chat(owner, "Smoking in a non-smoking zone does not rest my nerves!")
+			smoking_message = -1 //takes 51 puffs before we get a new warning about smoking in a non-smoker zone
+		return
+
 	if(resting)
 		add_rest(INSIGHT_DESIRE_SMOKING, 0.4 * S.quality_multiplier)
+
+	if(smoking_allowed && !smoking_no)
+		changeLevel(1) //1+ for smoking in the correct area
+		if(ishuman(owner))
+			var/mob/living/carbon/human/H = owner
+			H.learnt_tasks.attempt_add_task_mastery(/datum/task_master/task/proper_area_smoker, "PROPER_AREA_SMOKER", skill_gained = 0.1, learner = H)
+
+	changeLevel(smoking_change)
 
 /datum/sanity/proc/onSay()
 	if(world.time < say_time)
@@ -476,11 +511,15 @@ GLOBAL_VAR_INIT(GLOBAL_INSIGHT_MOD, 1)
 	changeLevel(SANITY_GAIN_SAY)
 
 /datum/sanity/proc/changeLevel(amount)
+	if(owner.species.reagent_tag == IS_SYNTHETIC)
+		return
 	if(sanity_invulnerability && amount < 0)
 		return
 	updateLevel(level + amount)
 
 /datum/sanity/proc/setLevel(amount)
+	if(owner.species.reagent_tag == IS_SYNTHETIC)
+		return
 	if(sanity_invulnerability)
 		restoreLevel(amount)
 		return
@@ -492,6 +531,8 @@ GLOBAL_VAR_INIT(GLOBAL_INSIGHT_MOD, 1)
 	updateLevel(amount)
 
 /datum/sanity/proc/updateLevel(new_level)
+	if(owner.species.reagent_tag == IS_SYNTHETIC)
+		return
 	new_level = CLAMP(new_level, 0, max_level)
 	level_change += abs(new_level - level)
 	level = new_level
@@ -537,3 +578,8 @@ GLOBAL_VAR_INIT(GLOBAL_INSIGHT_MOD, 1)
 		return
 
 #undef SANITY_PASSIVE_GAIN
+
+
+//Soj Edit
+/datum/sanity/proc/change_max_level(amount)
+	max_level += amount

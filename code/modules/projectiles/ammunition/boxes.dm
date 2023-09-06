@@ -271,6 +271,11 @@
 	icon_state = "lrifle_l"
 	ammo_type = /obj/item/ammo_casing/light_rifle_257/lethal
 
+/obj/item/ammo_magazine/ammobox/light_rifle_257_small/incend
+	name = "ammunition packet (6.5mm Carbine incendiary)"
+	icon_state = "lrifle_l"
+	ammo_type = /obj/item/ammo_casing/light_rifle_257/incend
+
 /obj/item/ammo_magazine/ammobox/light_rifle_257_small/laser
 	name = "ammunition packet (6.5mm Carbine laser)"
 	icon_state = "clrifle_si"
@@ -357,6 +362,11 @@
 	name = "ammunition packet (7.62mm Rifle hollow-point)"
 	icon_state = "rifle_l"
 	ammo_type = /obj/item/ammo_casing/rifle_75/lethal
+
+/obj/item/ammo_magazine/ammobox/rifle_75_small/incend
+	name = "ammunition packet (7.62mm Rifle incendiary)"
+	icon_state = "rifle_l"
+	ammo_type = /obj/item/ammo_casing/rifle_75/incend
 
 /obj/item/ammo_magazine/ammobox/rifle_75_small/scrap
 	name = "ammunition packet (old 7.62mm Rifle)"
@@ -452,6 +462,15 @@
 	ammo_type = /obj/item/ammo_casing/antim
 	max_ammo = 15
 
+/obj/item/ammo_magazine/ammobox/antim_small/incend
+	name = "ammunition packet (14.5mm Incendiary)"
+	icon_state = "60-06sm"
+	matter = list(MATERIAL_CARDBOARD = 1)
+	caliber = CAL_ANTIM
+	w_class = ITEM_SIZE_NORMAL
+	ammo_type = /obj/item/ammo_casing/antim/incend
+	max_ammo = 15
+
 /obj/item/ammo_magazine/ammobox/antim/scrap
 	name = "ammunition box (old 14.5mm Anti Materiel)"
 	icon_state = "antim_s"
@@ -504,6 +523,12 @@
 	icon_state = "hrifle_l"
 	desc = "A box of 8.6x70mm heavy rifle ammunition. 40ct, 10mm hollow-tipped full-caliber."
 	ammo_type = /obj/item/ammo_casing/heavy_rifle_408/lethal
+
+/obj/item/ammo_magazine/ammobox/heavy_rifle_408_small/incend
+	name = "ammunition packet (8.6mm incendiary)"
+	icon_state = "hrifle_l"
+	desc = "A box of 8.6x70mm heavy rifle ammunition. 40ct, 10mm incendiary full-caliber."
+	ammo_type = /obj/item/ammo_casing/heavy_rifle_408/incend
 
 /obj/item/ammo_magazine/ammobox/heavy_rifle_408_small/laser
 	name = "ammunition packet (8.6mm laser)"
@@ -681,6 +706,14 @@
 	name = "ammunition packet (20mm Buckshot)"
 	icon_state = "buckshot"
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+
+/obj/item/ammo_magazine/ammobox/shotgun/biomatter
+	name = "ammunition packet (20mm Biomatter Slug)"
+	icon_state = "caustic"
+	desc = "A luxurious wooden box with a bevelled lid, filled to the brim with acrid-smelling paper cartridges, intended for use in a 20mm shotgun. \
+			The lid is kept on with a fine silken ribbon tied around the top. The ammunition inside is 20mm caustic sabot, \
+			an armour-piercing delivery system for painful acids designed to debilitate your target."
+	ammo_type = /obj/item/ammo_casing/shotgun/biomatter
 
 //used in mapping only cases
 /obj/item/ammo_magazine/ammobox/shotgun/flashshells

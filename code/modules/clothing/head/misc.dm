@@ -288,6 +288,11 @@ obj/item/clothing/head/ribbon/red
 	icon_state = "feather_trilby"
 	desc = "A dark blue felt fedora with a classy white feather."
 
+/obj/item/clothing/head/investigator //to prevent it being under loadout
+	name = "investigator fedora"
+	icon_state = "investigator"
+	desc = "A soft brown fedora belonging to a man of law."
+
 /*Misc*/
 
 /obj/item/clothing/head/rank/centcom
@@ -320,8 +325,8 @@ obj/item/clothing/head/ribbon/red
 
 /obj/item/clothing/head/numerical_hat
 	name = "numerical hat"
-	icon_state = "numerical_hat"
-	desc = "A tall hat for nurmerical of the faith. Can be turned inside out to turn form red to gray or gray to red"
+	icon_state = "field_numerical_hat"
+	desc = "A tall hat for nurmerical of the faith. Can be turned inside out to turn form red to purple or purple to red"
 	armor_list = list( //same as the garb
 		melee = 10,
 		bullet = 0,
@@ -341,8 +346,8 @@ obj/item/clothing/head/ribbon/red
 
 	var/mob/M = usr
 	var/list/options = list()
-	options["Red Hat"] = "numerical_hat"
-	options["Gray Hat"] = "numerical_hatgrey"
+	options["Red Hat"] = "field_numerical_hat"
+	options["Purple Hat"] = "field_numerical_hat_alt"
 
 	var/choice = input(M,"What kind of style do you want?","Adjust Style") as null|anything in options
 

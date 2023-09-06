@@ -34,7 +34,6 @@
 		/datum/design/bioprinter/belt/security/neotheology,
 		/datum/design/bioprinter/nt_clothes/church_uniform,
 		/datum/design/bioprinter/nt_clothes/acolyte_uniform,
-		/datum/design/bioprinter/nt_clothes/sports_uniform,
 		/datum/design/bioprinter/nt_clothes/sports_jacket,
 		/datum/design/bioprinter/sling,
 		/datum/design/bioprinter/botanic_leather,
@@ -124,7 +123,7 @@
 		/datum/design/autolathe/ammo/magnum_ammobox_biomatter = 4
 		)
 
-//Church shotgun
+//Thorn and Rose Pack - both 10mm and 9mm
 /obj/item/computer_hardware/hard_drive/portable/design/nt/mk58
 	disk_name = "Absolute Armory - Thorn and Rose Handgun Pack Plus"
 	icon_state = "neotheology"
@@ -161,10 +160,10 @@
 		/datum/design/autolathe/ammo/shotgun_illumination,
 		/datum/design/autolathe/ammo/shotgun_pellet = 2,
 		/datum/design/autolathe/ammo/shotgun = 2,
-		/datum/design/autolathe/ammo/magnum_ammobox_biomatter = 3,
+		/datum/design/autolathe/ammo/magnum_ammobox_biomatter = 3
 		)
 
-//Church shotgun
+//Church Revolver
 /obj/item/computer_hardware/hard_drive/portable/design/nt/lemant
 	disk_name = "Absolute Armory - .40/20mm Pilgrim revolver Plus"
 	icon_state = "neotheology"
@@ -181,7 +180,7 @@
 		/datum/design/autolathe/ammo/shotgun_illumination,
 		/datum/design/autolathe/ammo/shotgun_pellet = 2,
 		/datum/design/autolathe/ammo/shotgun = 2,
-		/datum/design/autolathe/ammo/magnum_ammobox_biomatter = 2,
+		/datum/design/autolathe/ammo/magnum_ammobox_biomatter = 2
 		)
 
 //Church shotgun
@@ -195,6 +194,7 @@
 		/datum/design/autolathe/ammo/shotgun_beanbag,
 		/datum/design/autolathe/ammo/shotgun_blanks = 0,
 		/datum/design/autolathe/ammo/shotgun_illumination,
+		/datum/design/autolathe/ammo/shotgun_biomatter = 5
 		)
 
 //for the EOTP
@@ -210,6 +210,7 @@
 		/datum/design/autolathe/ammo/shotgun_illumination,
 		/datum/design/autolathe/ammo/shotgun_box = 3,
 		/datum/design/autolathe/ammo/shotgun_pellet_box = 3,
+		/datum/design/autolathe/ammo/shotgun_biomatter = 3
 		)
 
 // ENERGY SMALL ARMS
@@ -233,7 +234,7 @@
 		/datum/design/autolathe/gun/ntpistol = 2,
 		/datum/design/autolathe/cell/small/high,
 	)
-	
+
 //for the EOTP
 /obj/item/computer_hardware/hard_drive/portable/design/nt/counselor
 	disk_name = "Absolute Armory - Counselor PDW E Plus"
@@ -244,7 +245,7 @@
 		/datum/design/autolathe/gun/taser,
 		/datum/design/autolathe/cell/medium/high,
 	)
-	
+
 /obj/item/computer_hardware/hard_drive/portable/design/nt/nt_counselor
 	disk_name = "Absolute Armory - NT LP \"Serenity\" Plus"
 	icon_state = "neotheology"
@@ -341,7 +342,7 @@ obj/item/computer_hardware/hard_drive/portable/design/nt/valkirye
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/guns/carpedie
-	disk_name = "Absolute Armory - Carpedie Lasgun Rifle"
+	disk_name = "Absolute Armory - Carpediem laser musket"
 	icon_state = "neotheology"
 
 	license = 8
@@ -352,7 +353,7 @@ obj/item/computer_hardware/hard_drive/portable/design/nt/valkirye
 
 //for the EOTP
 /obj/item/computer_hardware/hard_drive/portable/design/nt/carpedie
-	disk_name = "Absolute Armory - Carpedie Lasgun Rifle Plus"
+	disk_name = "Absolute Armory - Carpediem laser musket Plus"
 	icon_state = "neotheology"
 
 	license = 8
@@ -474,7 +475,7 @@ obj/item/computer_hardware/hard_drive/portable/design/nt/concillium
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/guns/antebellum
-	disk_name = "Absolute Armory - Antebellum Blunderbuss lasgun"
+	disk_name = "Absolute Armory - Antebellum laser blunderbuss"
 	icon_state = "neotheology"
 
 	license = 8
@@ -485,7 +486,7 @@ obj/item/computer_hardware/hard_drive/portable/design/nt/concillium
 
 //for the EOTP
 /obj/item/computer_hardware/hard_drive/portable/design/nt/antebellum
-	disk_name = "Absolute Armory - Antebellum Blunderbuss lasgun Plus"
+	disk_name = "Absolute Armory - Antebellum laser blunderbuss Plus"
 	icon_state = "neotheology"
 
 	license = 8
@@ -550,6 +551,7 @@ obj/item/computer_hardware/hard_drive/portable/design/nt/concillium
 		/datum/design/autolathe/gun/plasma/martyr,
 		/datum/design/autolathe/gun/plasma/excubitor,
 		//armor
+		/datum/design/bioprinter/nt_clothes/armor_kit,
 		/datum/design/bioprinter/nt_clothes/acolyte_armor_helm,
 		/datum/design/bioprinter/nt_clothes/acolyte_armor,
 		/datum/design/bioprinter/nt_clothes/agrolyte_armor_helm,
@@ -702,3 +704,16 @@ obj/item/computer_hardware/hard_drive/portable/design/nt/concillium
 		/datum/design/bioprinter/nt_cells/small,
 		/datum/design/bioprinter/nt_cells/small/plasma = 2
 		)
+
+//for the EOTP
+
+/obj/item/computer_hardware/hard_drive/portable/design/nt_caustic_rounds
+	disk_name = "Absolute Armory - Caustic Ammunition Pack"
+	desc = "A rare and expensive disk containing designs for biomatter based caseless ballistic rounds."
+	icon_state = "neotheology"
+	license = 20
+	designs = list(
+		/datum/design/autolathe/ammo/shotgun_biomatter = 4,
+		/datum/design/autolathe/ammo/magnum_ammobox_biomatter = 2,
+		/datum/design/autolathe/ammo/pistol_ammobox_biomatter
+	)
