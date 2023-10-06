@@ -1,4 +1,4 @@
-//Deathsquad suit
+	//Deathsquad suit
 /obj/item/clothing/head/helmet/space/deathsquad
 	name = "deathsquad helmet"
 	desc = "That's not red paint. That's real blood."

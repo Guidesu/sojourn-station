@@ -664,6 +664,11 @@ BLIND     // can't see anything
 	qdel(referencecarmor)
 	..()
 
+/obj/item/clothing/suit/storage/attackby(obj/item/W, mob/user)
+	if(!istype(W, /obj/item/clothing/accessory)) // Do not put accessories into pockets
+		pockets.attackby(W, user)
+	..()
+
 ///////////////////////////////////////////////////////////////////////
 //Under clothing
 /obj/item/clothing/under
