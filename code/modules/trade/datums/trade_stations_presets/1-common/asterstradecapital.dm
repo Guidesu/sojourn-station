@@ -53,6 +53,14 @@
 			/obj/item/grenade/chem_grenade/cleaner,
 			/obj/item/grenade/chem_grenade/metalfoam
 		),
+		"Mining Gear" = list(
+			/obj/machinery/mining/deep_drill,
+			/obj/item/tool/karl,
+			/obj/item/tool/pickaxe,
+			/obj/item/tool/pickaxe/excavation,
+			/obj/item/storage/bag/ore,
+			/obj/structure/ore_box
+		),
 		"Toys" = list(
 			/obj/item/toy/junk/balloon = good_data("Water Balloon", list(1, 50), 5),
 			/obj/item/toy/junk/blink,
