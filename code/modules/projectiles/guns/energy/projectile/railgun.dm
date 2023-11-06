@@ -43,7 +43,7 @@
 	serial_type = "AG"
 	init_firemodes = list(
 		list(mode_name="slug", mode_desc="fires a small metal chunk at light speeds", projectile_type=/obj/item/projectile/bullet/kurtz_50/railgun, icon="kill"),
-		list(mode_name="non-lethal", mode_desc="fires a small rubber chunk at light speeds", projectile_type=/obj/item/projectile/bullet/kurtz_50/rubber/railgun, icon="stun"),
+		list(mode_name="Less-lethal", mode_desc="fires a small rubber chunk at light speeds. Still likely to ruin someones day.", projectile_type=/obj/item/projectile/bullet/kurtz_50/rubber/railgun, icon="stun"),
 		list(mode_name="grenade", mode_desc="fires a frag synth-shell", projectile_type=/obj/item/projectile/bullet/grenade/frag, charge_cost=30000, icon="grenade"),
 	)
 	price_tag = 1250
@@ -145,7 +145,7 @@
 	damage_multiplier = 1
 	init_firemodes = list(
 		list(mode_name="slug", mode_desc="fires a large metal chunk at light speeds", projectile_type=/obj/item/projectile/bullet/shotgun/railgun, icon="kill"),
-		list(mode_name="non-lethal", mode_desc="fires a rubber pellet at light speed", projectile_type=/obj/item/projectile/bullet/shotgun/beanbag/railgun, icon="stun"),
+		list(mode_name="Less-lethal", mode_desc="fires a rubber pellet at light speed. Still likely to ruin somones day.", projectile_type=/obj/item/projectile/bullet/shotgun/beanbag/railgun, icon="stun"),
 		list(mode_name="grenade", mode_desc="fires an explosive synth-shell", projectile_type=/obj/item/projectile/bullet/grenade, charge_cost=30000, icon="grenade")
 	)
 	consume_cell = FALSE
@@ -179,7 +179,7 @@
 	else
 		return new projectile_type(src)
 
-/obj/item/gun/energy/laser/railgun/railrifle/attackby(obj/item/I, mob/user)
+/obj/item/gun/energy/laser/railgun/attackby(obj/item/I, mob/user)
 	..()
 	if(I.has_quality(QUALITY_BOLT_TURNING))
 		if(I.use_tool(user, src, WORKTIME_SLOW, QUALITY_BOLT_TURNING, FAILCHANCE_VERY_HARD, required_stat = STAT_MEC))
@@ -248,7 +248,7 @@
 
 	var/max_stored_matter = 6
 	var/stored_matter = 0
-	var/matter_type = MATERIAL_RSCRAP
+	var/matter_type = "refined scrap pieces"
 
 	var/projectile_cost = 1
 	var/overheat_damage = 25
@@ -269,9 +269,9 @@
 	..()
 /obj/item/gun/energy/laser/railgun/gauss/attackby(obj/item/I, mob/user)
 
-	if(!istype(I,/obj/item/stack/sheet))
+	if(!istype(I,/obj/item/stack))
 		..()
-	var/obj/item/stack/sheet/M = I
+	var/obj/item/stack/M = I
 	if(istype(M) && M.name == matter_type)
 		var/amount = min(M.get_amount(), round(max_stored_matter - stored_matter))
 		if(M.use(amount))

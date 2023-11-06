@@ -193,7 +193,7 @@
 /datum/reagent/medicine/cordradaxon/affect_blood(var/mob/living/carbon/M, var/alien, var/removed = REM)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/internal/heart/C = H.random_organ_by_process(OP_HEART)
+		var/obj/item/organ/internal/vital/heart/C = H.random_organ_by_process(OP_HEART)
 		if(H && istype(H))
 			if(BP_IS_ROBOTIC(C))
 				return
@@ -262,7 +262,7 @@
 /datum/reagent/medicine/respirodaxon/affect_blood(var/mob/living/carbon/M, var/alien, var/removed = REM)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/internal/lungs/L = H.random_organ_by_process(OP_LUNGS)
+		var/obj/item/organ/internal/vital/lungs/L = H.random_organ_by_process(OP_LUNGS)
 		if(H && istype(H))
 			if(BP_IS_ROBOTIC(L))
 				return
@@ -842,6 +842,7 @@ We don't use this but we might find use for it. Porting it since it was updated 
 	id = "citalopram"
 	description = "Stabilizes the mind a little."
 	taste_description = "bitterness"
+	sanity_gain = 2
 	reagent_state = LIQUID
 	color = "#FF80FF"
 	metabolism = 0.01
@@ -854,6 +855,23 @@ We don't use this but we might find use for it. Porting it since it was updated 
 		to_chat(M, SPAN_WARNING("Your mind feels a little less stable..."))
 	else
 		M.add_chemical_effect(CE_MIND, 1)
+		M.add_chemical_effect(CE_SLOWDOWN, 0.3)
+		M.stats.addTempStat(STAT_ROB, -STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "citalopram")
+		M.stats.addTempStat(STAT_TGH, -STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "citalopram")
+		if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
+			data = world.time
+			to_chat(M, SPAN_NOTICE("Your mind feels stable... a little stable."))
+
+/datum/reagent/medicine/citalopram/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
+	if(volume <= 0.1 && data != -1)
+		data = -1
+		to_chat(M, SPAN_WARNING("Your mind feels a little less stable..."))
+	else
+		M.add_chemical_effect(CE_MIND, 1)
+		M.add_chemical_effect(CE_SLOWDOWN, 0.6)
+		M.stats.addTempStat(STAT_ROB, -STAT_LEVEL_BASIC * effect_multiplier, STIM_TIME, "citalopram")
+		M.stats.addTempStat(STAT_TGH, -STAT_LEVEL_BASIC * effect_multiplier, STIM_TIME, "citalopram")
+
 		if(world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
 			data = world.time
 			to_chat(M, SPAN_NOTICE("Your mind feels stable... a little stable."))
