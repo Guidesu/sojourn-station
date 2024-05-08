@@ -80,8 +80,8 @@
 #define WAIT_FINISH  4
 
 // Setting this much higher than 1024 could allow spammers to DOS the server easily.
-#define MAX_MESSAGE_LEN       3072
-#define MAX_PAPER_MESSAGE_LEN 4096
+#define MAX_MESSAGE_LEN       8192
+#define MAX_PAPER_MESSAGE_LEN 16384
 #define MAX_BOOK_MESSAGE_LEN  12288
 #define MAX_LNAME_LEN         64
 #define MAX_NAME_LEN          26
@@ -158,9 +158,9 @@
 #define NTNET_SYSTEMCONTROL 4		// Control of various systems, RCon, air alarm control, etc.
 
 // NTNet transfer speeds, used when downloading/uploading a file/program.
-#define NTNETSPEED_LOWSIGNAL 0.05	// GQ/s transfer speed when the device is wirelessly connected and on Low signal
-#define NTNETSPEED_HIGHSIGNAL 0.15	// GQ/s transfer speed when the device is wirelessly connected and on High signal
-#define NTNETSPEED_ETHERNET 0.40		// GQ/s transfer speed when the device is using wired connection
+#define NTNETSPEED_LOWSIGNAL 0.25	// GQ/s transfer speed when the device is wirelessly connected and on Low signal
+#define NTNETSPEED_HIGHSIGNAL 0.5	// GQ/s transfer speed when the device is wirelessly connected and on High signal
+#define NTNETSPEED_ETHERNET 1		// GQ/s transfer speed when the device is using wired connection
 #define NTNETSPEED_DOS_AMPLIFICATION 2	// Multiplier for Denial of Service program. Resulting load on NTNet relay is this multiplied by NTNETSPEED of the device
 
 // Program bitflags

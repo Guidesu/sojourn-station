@@ -1020,7 +1020,7 @@
 		//		malfvacate()
 		if("reboot")
 			failure_timer = 0
-			force_update = FALSE
+			force_update = TRUE
 			update_icon()
 			update()
 		//if("emergency_lighting")		we don't have those
@@ -1208,7 +1208,7 @@
 		return FALSE
 
 /obj/machinery/power/apc/Process()
-	SEND_SIGNAL(area, COMSIG_AREA_APC_OPERATING, operating)
+	LEGACY_SEND_SIGNAL(area, COMSIG_AREA_APC_OPERATING, operating)
 	if(stat & (BROKEN|MAINT))
 		return
 	if(!area.requires_power)
