@@ -56,7 +56,7 @@
  */
 /datum/tgui/New(mob/user, datum/src_object, interface, title, ui_x, ui_y)
 	log_tgui(user,
-		"new [interface] fancy [user?.client?.get_preference_value(/datum/client_preference/tgui_fancy)]",
+		"new [interface] fancy [user?.client?.get_preference_value(/datum/client_preference/tgui_fancy) == GLOB.PREF_YES]",
 		src_object = src_object)
 	src.user = user
 	src.src_object = src_object
@@ -97,7 +97,7 @@
 	if(!window.is_ready())
 		window.initialize(
 			strict_mode = TRUE,
-			fancy = user.client.get_preference_value(/datum/client_preference/tgui_fancy),
+			fancy = user.client.get_preference_value(/datum/client_preference/tgui_fancy) == GLOB.PREF_YES,
 			assets = list(
 				get_asset_datum(/datum/asset/simple/tgui),
 			))
@@ -297,8 +297,10 @@ GLOBAL_LIST_INIT(TGUI_THEMES, list(
 		"window" = list(
 			"key" = window_key,
 			"size" = window_size,
-			"fancy" = user.client.get_preference_value(/datum/client_preference/tgui_fancy),
-			"locked" = user.client.get_preference_value(/datum/client_preference/tgui_lock),
+			"fancy" = user.client.get_preference_value(/datum/client_preference/tgui_fancy) == GLOB.PREF_YES,
+			"locked" = user.client.get_preference_value(/datum/client_preference/tgui_lock) == GLOB.PREF_YES,
+			// for bad PCs
+			"toaster" = user.client.get_preference_value(/datum/client_preference/tgui_toaster) == GLOB.PREF_YES,
 			"default_theme" = get_theme_by_pref(user.client.prefs.TGUI_theme)
 		),
 		"client" = list(

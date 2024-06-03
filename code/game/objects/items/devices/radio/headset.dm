@@ -282,7 +282,7 @@
 	ks2type = /obj/item/device/encryptionkey/heads/hop
 
 /obj/item/device/radio/headset/heads/merchant
-	name = "executive officer's headset"
+	name = "surface manager's headset"
 	desc = "The headset of the guy who knows the price for everything and absolutely will buy that for a dollar."
 	icon_state = "com_headset"
 	item_state = "headset"
@@ -297,7 +297,7 @@
 
 /obj/item/device/radio/headset/headset_cargo
 	name = "supply radio headset"
-	desc = "A headset used by CEO's slaves."
+	desc = "A headset used by SOM's slaves."
 	icon_state = "cargo_headset"
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/headset_cargo
@@ -414,7 +414,7 @@
 	return
 
 
-/obj/item/device/radio/headset/proc/recalculateChannels(var/setDescription = 0)
+/obj/item/device/radio/headset/recalculateChannels(var/setDescription = 0)
 	src.channels = list()
 	src.translate_binary = 0
 	src.translate_hive = 0

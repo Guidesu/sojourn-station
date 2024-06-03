@@ -48,7 +48,7 @@
 
 /datum/perk/timeismoney
 	name = "Hyperzine Injections"
-	desc = "A standard issue injector hidden away that is designed for Chief Executive Officers that contains a small on-demand injection of Hyperzine. The injector itself is unable to be seen by prying scanners and comes in both \
+	desc = "A standard issue injector hidden away that is designed for Surface Operations Managers that contains a small on-demand injection of Hyperzine. The injector itself is unable to be seen by prying scanners and comes in both \
 	metal and organic material designs to aid in remaining hidden. While useful, the chemical storage takes time to recharge after use."
 	active = FALSE
 	passivePerk = FALSE
@@ -284,20 +284,20 @@
 	..()
 	initial_time = world.time
 	cooldown_time = world.time + 30 MINUTES
-	holder.brute_mod_perk += 0.10
-	holder.burn_mod_perk += 0.10
-	holder.oxy_mod_perk += 0.10
-	holder.toxin_mod_perk += 0.10
+	holder.brute_mod_perk *= 1.10
+	holder.burn_mod_perk *= 1.10
+	holder.oxy_mod_perk *= 1.10
+	holder.toxin_mod_perk *= 1.10
 	holder.stats.changeStat(STAT_ROB, -10)
 	holder.stats.changeStat(STAT_TGH, -10)
 	holder.stats.changeStat(STAT_VIG, -10)
 	H.learnt_tasks.attempt_add_task_mastery(/datum/task_master/task/poors, "POORS", skill_gained = 0.5, learner = H)
 
 /datum/perk/rezsickness/remove()
-	holder.brute_mod_perk -= 0.10
-	holder.burn_mod_perk -= 0.10
-	holder.oxy_mod_perk -= 0.10
-	holder.toxin_mod_perk -= 0.10
+	holder.brute_mod_perk /= 1.10
+	holder.burn_mod_perk /= 1.10
+	holder.oxy_mod_perk /= 1.10
+	holder.toxin_mod_perk /= 1.10
 	holder.stats.changeStat(STAT_ROB, 10)
 	holder.stats.changeStat(STAT_TGH, 10)
 	holder.stats.changeStat(STAT_VIG, 10)
@@ -311,19 +311,19 @@
 
 /datum/perk/rezsickness/severe/assign(mob/living/carbon/human/H)
 	..()
-	holder.brute_mod_perk += 0.15
-	holder.burn_mod_perk += 0.15
-	holder.oxy_mod_perk += 0.15
-	holder.toxin_mod_perk += 0.15
+	holder.brute_mod_perk *= 1.15
+	holder.burn_mod_perk *= 1.15
+	holder.oxy_mod_perk *= 1.15
+	holder.toxin_mod_perk *= 1.15
 	holder.stats.changeStat(STAT_COG, -15)
 	holder.stats.changeStat(STAT_MEC, -15)
 	holder.stats.changeStat(STAT_BIO, -15)
 
 /datum/perk/rezsickness/severe/remove()
-	holder.brute_mod_perk -= 0.15
-	holder.burn_mod_perk -= 0.15
-	holder.oxy_mod_perk -= 0.15
-	holder.toxin_mod_perk -= 0.15
+	holder.brute_mod_perk /= 1.15
+	holder.burn_mod_perk /= 1.15
+	holder.oxy_mod_perk /= 1.15
+	holder.toxin_mod_perk /= 1.15
 	holder.stats.changeStat(STAT_COG, 15)
 	holder.stats.changeStat(STAT_MEC, 15)
 	holder.stats.changeStat(STAT_BIO, 15)
@@ -336,10 +336,10 @@
 
 /datum/perk/rezsickness/severe/fatal/assign(mob/living/carbon/human/H)
 	..()
-	holder.brute_mod_perk += 0.25
-	holder.burn_mod_perk += 0.25
-	holder.oxy_mod_perk += 0.25
-	holder.toxin_mod_perk += 0.25
+	holder.brute_mod_perk *= 1.25
+	holder.burn_mod_perk *= 1.25
+	holder.oxy_mod_perk *= 1.25
+	holder.toxin_mod_perk *= 1.25
 	holder.stats.changeStat(STAT_ROB, -20)
 	holder.stats.changeStat(STAT_TGH, -20)
 	holder.stats.changeStat(STAT_VIG, -20)
@@ -348,10 +348,10 @@
 	holder.stats.changeStat(STAT_BIO, -20)
 
 /datum/perk/rezsickness/severe/fatal/remove()
-	holder.brute_mod_perk -= 0.25
-	holder.burn_mod_perk -= 0.25
-	holder.oxy_mod_perk -= 0.25
-	holder.toxin_mod_perk -= 0.25
+	holder.brute_mod_perk /= 1.25
+	holder.burn_mod_perk /= 1.25
+	holder.oxy_mod_perk /= 1.25
+	holder.toxin_mod_perk /= 1.25
 	holder.stats.changeStat(STAT_ROB, 20)
 	holder.stats.changeStat(STAT_TGH, 20)
 	holder.stats.changeStat(STAT_VIG, 20)
@@ -381,15 +381,15 @@
 	..()
 	initial_time = world.time
 	cooldown_time = world.time + 30 MINUTES
-	holder.brute_mod_perk += 0.3
-	holder.burn_mod_perk += 0.3
+	holder.brute_mod_perk *= 1.3
+	holder.burn_mod_perk *= 1.3
 	holder.stats.changeStat(STAT_ROB, 30)
 	holder.stats.changeStat(STAT_TGH, -30)
 	holder.stats.changeStat(STAT_VIG, -30)
 
 /datum/perk/racial/slime_rez_sickness/remove()
-	holder.brute_mod_perk -= 0.3
-	holder.burn_mod_perk -= 0.3
+	holder.brute_mod_perk /= 1.3
+	holder.burn_mod_perk /= 1.3
 	holder.stats.changeStat(STAT_ROB, -30)
 	holder.stats.changeStat(STAT_TGH, 30)
 	holder.stats.changeStat(STAT_VIG, 30)
@@ -465,12 +465,12 @@
 	desc = "Thanks to special and intensive training received in the course of your employment with Blackshield, with all the practice gained in space you feel you can jump from greater heights and know when to duck-and-cover."
 	icon_state = "blackshieldconditioning"
 
-/datum/perk/blackshield_conditioning/assign(mob/living/carbon/human/H)
+/datum/perk/job/blackshield_conditioning/assign(mob/living/carbon/human/H)
 	..()
 	holder.mob_bomb_defense += 20
 	holder.falls_mod -= 0.4
 
-/datum/perk/blackshield_conditioning/remove()
+/datum/perk/job/blackshield_conditioning/remove()
 	holder.mob_bomb_defense -= 20
 	holder.falls_mod += 0.4
 	..()
@@ -481,14 +481,14 @@
 	icon_state = "roughandtumble"
 	perk_shared_ability = PERK_SHARED_SEE_ILLEGAL_REAGENTS
 
-/datum/perk/prospector_conditioning/assign(mob/living/carbon/human/H)
+/datum/perk/job/prospector_conditioning/assign(mob/living/carbon/human/H)
 	..()
 	if(holder)
 		holder.metabolism_effects.addiction_chance_multiplier = 0.1
 		holder.metabolism_effects.nsa_bonus += 25
 		holder.metabolism_effects.calculate_nsa()
 
-/datum/perk/prospector_conditioning/remove()
+/datum/perk/job/prospector_conditioning/remove()
 	if(holder)
 		holder.metabolism_effects.addiction_chance_multiplier = 1
 		holder.metabolism_effects.nsa_bonus -= 25
